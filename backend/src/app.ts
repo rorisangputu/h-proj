@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 
 app.get("/api/test", async (req: Request, res: Response) => {
-    return res.send("BZZZAAA world");
+    return res.send({message: "BZZZAAA world"});
 });
 
 app.listen(PORT, () => {
