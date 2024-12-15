@@ -1,9 +1,10 @@
 import React from "react";
+import Layout from "./layouts/Layout";
 
 const App = () => {
   return (
     <div className="p-20">
-      <h1 className="font-bold text-5xl">Hello World</h1>
+      <Layout />
     </div>
   );
 };
