@@ -5,7 +5,14 @@ const App = () => {
   return (
     <div className="">
       <Routes>
-        <Route path="/" element={<Layout />} />
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <p>Home Page</p>
+            </Layout>
+          }
+        />
       </Routes>
     </div>
   );
