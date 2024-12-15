@@ -6,7 +6,8 @@ const Footer = () => {
           MernHolidays.com
         </span>
         <span className="text-white font-bold tracking-tight flex gap-4">
-                  
+          <p className="cursor-pointer">Privacy Policy</p>
+          <p className="cursor-pointer">Terms of Service</p>
         </span>
       </div>
     </div>
