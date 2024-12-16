@@ -33,4 +33,6 @@ router.post("/register", async (req: Request, res: Response) => {
         console.log(error);
         res.status(500).send({ message: "Something went wrong" });
     }
-})
+});
+
+export default router;
