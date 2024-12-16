@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 type RegisterFormData = {
   firstName: string;
@@ -75,6 +76,25 @@ const Register = () => {
             })}
           />
         </label>
+        <span className="flex flex-col md:flex-row gap-7 md:justify-between md:items-center">
+          <button
+            type="submit"
+            className="p-3 bg-blue-800 hover:bg-blue-600 text-white font-semibold"
+          >
+            Create Account
+          </button>
+          <p className="">
+            Already have an account?{" "}
+            <span>
+              <Link
+                className="cursor-pointer underline hover:text-blue-700"
+                to={"/login"}
+              >
+                Sign In
+              </Link>
+            </span>
+          </p>
+        </span>
       </form>
     </div>
   );
