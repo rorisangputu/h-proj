@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <Hero />
-      <div className="w-[60%] mx-auto py-10 flex-1">{children}</div>
+      <div className="w-[90%] md:w-[60%] mx-auto py-10 flex-1">{children}</div>
       <Footer />
     </div>
   );
