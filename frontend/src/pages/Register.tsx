@@ -19,18 +19,18 @@ const Register = () => {
             First Name
             <input
               type="text"
-              name=""
               id=""
               className="border rounded w-full py-2 px-2 mt-3 font-normal"
+              {...register("firstName", { required: "This field is required" })}
             />
           </label>
           <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
             Last Name
             <input
               type="text"
-              name=""
               id=""
               className="border rounded w-full py-2 px-2 mt-3 font-normal"
+              {...register("lastName", { required: "This field is required" })}
             />
           </label>
         </div>
