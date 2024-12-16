@@ -1,4 +1,7 @@
+import { useForm } from "react-hook-form";
+
 const Register = () => {
+  const { register } = useForm();
   return (
     <div>
       <form className="flex flex-col gap-5">
