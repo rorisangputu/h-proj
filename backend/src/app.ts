@@ -24,6 +24,10 @@ app.use(urlencoded({
 app.use(cors());
 const PORT = process.env.PORT || 3000;
 
+// app.get("/test", (req, res) => {
+//     res.send({message: "helloooo"})
+// })
+
 //Creating api routes
 app.use("/api/users", userRoutes);
 
