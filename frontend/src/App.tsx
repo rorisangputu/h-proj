@@ -30,6 +30,8 @@ const App = () => {
             </Layout>
           }
         />
+        
+        {/* CATCH ALL ROUTE */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
