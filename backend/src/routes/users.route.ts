@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import User from '../models/user.model';
 import jwt from 'jsonwebtoken';
-import { check } from 'express-validator';
+import { check, validationResult } from 'express-validator';
 
 const router = express.Router();
 
@@ -13,6 +13,11 @@ router.post("/register", [
         min: 6,
     })
 ], async (req: Request, res: Response) => {
+    const errors = validationResult(req); //Getting errors from express validator middleware
+    if (!errors.isEmpty()) {
+        return res.status(400).json({message: errors.array()})
+    }
+
     try {
         let user = await User.findOne({
             email: req.body.email,
