@@ -43,6 +43,26 @@ const Register = () => {
             {...register("email", { required: "This field is required" })}
           />
         </label>
+        <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
+          Password
+          <input
+            type="password"
+            id=""
+            className="border rounded w-full py-2 px-2 mt-3 font-normal"
+            {...register("password", { required: "This field is required" })}
+          />
+        </label>
+        <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
+          Confirm Password
+          <input
+            type="password"
+            id=""
+            className="border rounded w-full py-2 px-2 mt-3 font-normal"
+            {...register("confirmPassword", {
+              required: "This field is required",
+            })}
+          />
+        </label>
       </form>
     </div>
   );
