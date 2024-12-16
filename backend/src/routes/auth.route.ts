@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { check, validationResult } from 'express-validator';
 import User from '../models/user.model';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
@@ -25,6 +26,12 @@ router.post("/login", [
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) return res.status(400).json({ message: "Invalid Credentials" });
+
+            const token = jwt.sign(
+                { userId: user.id },
+                process.env.JWT_SECRET_KEY as string,
+                { expiresIn: "1d" }
+            );
             
         } catch (error) {
             console.log(error);
