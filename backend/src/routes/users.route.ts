@@ -1,10 +1,13 @@
 import express, { Request, Response } from 'express';
 import User from '../models/user.model';
 import jwt from 'jsonwebtoken';
+import { check } from 'express-validator';
 
 const router = express.Router();
 
-router.post("/register", async (req: Request, res: Response) => {
+router.post("/register", [
+    check("firstName", "First Name is required").isString(),
+], async (req: Request, res: Response) => {
     try {
         let user = await User.findOne({
             email: req.body.email,
