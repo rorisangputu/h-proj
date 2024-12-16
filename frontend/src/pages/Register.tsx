@@ -14,6 +14,26 @@ const Register = () => {
     <div>
       <form className="flex flex-col gap-5">
         <h2 className="text-3xl font-bold">Create an account</h2>
+        <div className="flex flex-col md:flex-row gap-5">
+          <label htmlFor="" className="text-gray-700 text-sm font-bold">
+            First Name
+            <input
+              type="text"
+              name=""
+              id=""
+              className="border rounded w-full py-1 px-2 font-normal"
+            />
+          </label>
+          <label htmlFor="" className="text-gray-700 text-sm font-bold">
+            Last Name
+            <input
+              type="text"
+              name=""
+              id=""
+              className="border rounded w-full py-1 px-2 font-normal"
+            />
+          </label>
+        </div>
       </form>
     </div>
   );
