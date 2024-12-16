@@ -34,6 +34,15 @@ const Register = () => {
             />
           </label>
         </div>
+        <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
+          Email
+          <input
+            type="email"
+            id=""
+            className="border rounded w-full py-2 px-2 mt-3 font-normal"
+            {...register("email", { required: "This field is required" })}
+          />
+        </label>
       </form>
     </div>
   );
