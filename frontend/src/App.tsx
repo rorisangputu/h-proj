@@ -1,5 +1,5 @@
 import Layout from "./layouts/Layout";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 
 const App = () => {
@@ -30,6 +30,7 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
