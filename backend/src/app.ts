@@ -2,6 +2,7 @@ import express, { Request, Response, urlencoded } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
+import userRoutes from './routes/users.route';
 
 const dbConn = async () => {
     try {
@@ -24,9 +25,7 @@ const PORT = process.env.PORT || 3000;
 
 
 
-app.get("/api/test", async (req: Request, res: Response) => {
-    return res.send({message: "Olllaaa world"});
-});
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
     dbConn();
