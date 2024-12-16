@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="bg-blue-800 py-6">
-      <div className="w-[60%] mx-auto flex justify-between items-center">
-        <span className="text-3xl text-white tracking-tight font-bold">
+      <div className="w-[90%] md:w-[60%] mx-auto flex justify-between items-center">
+        <span className="text-xl md:text-3xl text-white tracking-tight font-bold">
           <Link to={"/"}>MernHolidays.com</Link>
         </span>
         <span className="flex space-x-2">
