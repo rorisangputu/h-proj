@@ -9,7 +9,7 @@ type RegisterFormData = {
 };
 
 const Register = () => {
-  const { register } = useForm<RegisterFormData>();
+  const { register, watch } = useForm<RegisterFormData>();
   return (
     <div>
       <form className="flex flex-col gap-5">
@@ -49,7 +49,13 @@ const Register = () => {
             type="password"
             id=""
             className="border rounded w-full py-2 px-2 mt-3 font-normal"
-            {...register("password", { required: "This field is required" })}
+            {...register("password", {
+              required: "This field is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
           />
         </label>
         <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
@@ -59,7 +65,13 @@ const Register = () => {
             id=""
             className="border rounded w-full py-2 px-2 mt-3 font-normal"
             {...register("confirmPassword", {
-              required: "This field is required",
+              validate: (val) => {
+                if (!val) {
+                  return "This field is required";
+                } else if (watch("password") !== val) {
+                  return "Your passwords do not match ";
+                }
+              },
             })}
           />
         </label>
