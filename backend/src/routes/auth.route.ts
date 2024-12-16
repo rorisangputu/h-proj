@@ -23,7 +23,8 @@ router.post("/login", [
             const user = await User.findOne({ email });
             if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-            const isMatch = await bcrypt.compare()
+            const isMatch = await bcrypt.compare(password, user.password);
+            
         } catch (error) {
             console.log(error);
             res.status(500).json({message: "Something went wrong"})
