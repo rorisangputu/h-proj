@@ -34,9 +34,10 @@ router.post("/login", [
             );
             res.cookie("access_token", token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === "production"
+                secure: process.env.NODE_ENV === "production",
+                maxAge: 86400000
             });
-            
+
         } catch (error) {
             console.log(error);
             res.status(500).json({message: "Something went wrong"})
