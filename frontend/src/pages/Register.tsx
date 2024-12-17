@@ -14,7 +14,7 @@ export type RegisterFormData = {
 
 const Register = () => {
   const navigate = useNavigate();
-  
+
   const { showToast } = useAppContext();
   const {
     register,
@@ -26,6 +26,7 @@ const Register = () => {
   const mutation = useMutation(apiClient.register, {
     onSuccess: () => {
       showToast({ message: "Registration success!", type: "SUCCESS" });
+      navigate("/");
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
