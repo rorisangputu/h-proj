@@ -10,7 +10,12 @@ type RegisterFormData = {
 };
 
 const Register = () => {
-  const { register, watch, handleSubmit } = useForm<RegisterFormData>();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormData>();
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -28,6 +33,9 @@ const Register = () => {
               className="border rounded w-full py-2 px-2 mt-3 font-normal"
               {...register("firstName", { required: "This field is required" })}
             />
+            {errors.firstName && (
+              <span className="text-red-700">{errors.firstName.message}</span>
+            )}
           </label>
           <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
             Last Name
