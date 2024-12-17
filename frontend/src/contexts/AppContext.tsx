@@ -22,3 +22,8 @@ export const AppContextProvider = ({
     </AppContext.Provider>
   );
 };
+
+//Hook allows components to access context
+export const useAppContext = () => {
+    
+};
