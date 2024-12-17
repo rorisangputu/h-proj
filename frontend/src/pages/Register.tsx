@@ -45,6 +45,9 @@ const Register = () => {
               className="border rounded w-full py-2 px-2 mt-3 font-normal"
               {...register("lastName", { required: "This field is required" })}
             />
+            {errors.lastName && (
+              <span className="text-red-700">{errors.lastName.message}</span>
+            )}
           </label>
         </div>
         <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
@@ -55,6 +58,9 @@ const Register = () => {
             className="border rounded w-full py-2 px-2 mt-3 font-normal"
             {...register("email", { required: "This field is required" })}
           />
+          {errors.email && (
+            <span className="text-red-700">{errors.email.message}</span>
+          )}
         </label>
         <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
           Password
@@ -70,6 +76,9 @@ const Register = () => {
               },
             })}
           />
+          {errors.password && (
+            <span className="text-red-700">{errors.password.message}</span>
+          )}
         </label>
         <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
           Confirm Password
@@ -87,6 +96,11 @@ const Register = () => {
               },
             })}
           />
+          {errors.confirmPassword && (
+            <span className="text-red-700">
+              {errors.confirmPassword.message}
+            </span>
+          )}
         </label>
         <span className="flex flex-col md:flex-row gap-7 md:justify-between md:items-center">
           <button
