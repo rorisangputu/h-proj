@@ -8,6 +8,7 @@ type ToastMessage = {
 
 type AppContext = {
   showToast: (toastMessage: ToastMessage) => void;
+  isLoggedIn: boolean;
 };
 
 const AppContext = React.createContext<AppContext | undefined>(undefined);
