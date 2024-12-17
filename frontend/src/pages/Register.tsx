@@ -26,7 +26,7 @@ const Register = () => {
       showToast({ message: "Registration success!", type: "SUCCESS" });
     },
     onError: (error: Error) => {
-      console.log(error.message);
+      showToast({ message: error.message, type: "ERROR" });
     },
   });
 
