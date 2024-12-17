@@ -8,4 +8,10 @@ export const register = async (formData:RegisterFormData) => {
         },
         body: JSON.stringify(formData),
     });
+
+    const responseBody = await response.json();
+
+    if (!response.ok) {
+        throw new Error(responseBody.message);
+    }
 }
