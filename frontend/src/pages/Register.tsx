@@ -19,7 +19,14 @@ const Register = () => {
     formState: { errors },
   } = useForm<RegisterFormData>();
 
-  const mutation = useMutation(apiClient.register);
+  const mutation = useMutation(apiClient.register, {
+    onSuccess: () => {
+      console.log("Reg successfull");
+    },
+    onError: (error: Error) => {
+      console.log(error.message);
+    },
+  });
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
