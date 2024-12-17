@@ -1,3 +1,5 @@
+import React from "react";
+
 type ToastMessage = {
   message: string;
   type: "SUCCESS" | "ERROR";
