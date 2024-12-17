@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Toast from "../components/Toast";
 import { useQuery } from "react-query";
+import { validateToken } from "../api-client";
 
 type ToastMessage = {
   message: string;
@@ -22,16 +23,16 @@ export const AppContextProvider = ({
   //Declaring state object that holds state of toast
   const [toast, setToast] = useState<ToastMessage | undefined>(undefined);
 
-  const { isError } = useQuery("validateToken", apiClient.validateToken, {
+  const { isError } = useQuery("validateToken", validateToken, {
     retry: false,
-  })
+  });
   return (
     <AppContext.Provider
       value={{
         showToast: (toastMessage) => {
           setToast(toastMessage);
         },
-        isLoggedIn: !isError
+        isLoggedIn: !isError,
       }}
     >
       {toast && (
