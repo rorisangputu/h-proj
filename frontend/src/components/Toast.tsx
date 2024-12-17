@@ -1,6 +1,9 @@
+type ToastProps = {
+  message: string;
+  type: "SUCCESS" | "ERROR";
+};
 
-
-const Toast = () => {
+const Toast = ({ message, type }: ToastProps) => {
   return <div>Toast</div>;
 };
 
