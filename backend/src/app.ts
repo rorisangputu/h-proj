@@ -2,6 +2,7 @@ import express, { Request, Response, urlencoded } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 import userRoutes from './routes/users.route';
 import authRoutes from './routes/auth.route';
 
