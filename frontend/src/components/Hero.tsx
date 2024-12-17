@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div className="bg-blue-800 pb-24">
-      <div className="w-[90%] md:w-[60%] mx-auto flex flex-col gap-2">
+      <div className="w-[90%] mx-auto flex flex-col gap-2">
         <h1 className="text-5xl text-white font-semibold">
           Find Your Next Stay
         </h1>
