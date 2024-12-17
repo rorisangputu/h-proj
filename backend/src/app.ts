@@ -22,7 +22,10 @@ app.use(express.json());
 app.use(urlencoded({
     extended: true
 }));
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+}));
 const PORT = process.env.PORT || 3000;
 
 // app.get("/test", (req, res) => {
