@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 type ToastMessage = {
   message: string;
@@ -25,5 +25,6 @@ export const AppContextProvider = ({
 
 //Hook allows components to access context
 export const useAppContext = () => {
-    
+  const context = useContext(AppContext);
+  return context as AppContext;
 };
