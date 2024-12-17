@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useMutation } from "react-query";
 import { Link } from "react-router-dom";
 
 export type RegisterFormData = {
@@ -16,6 +17,8 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormData>();
+
+  const mutation = useMutation();
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
