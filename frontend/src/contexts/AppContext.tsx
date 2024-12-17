@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 type ToastMessage = {
   message: string;
@@ -16,6 +16,8 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  //Declaring state object that holds state of toast
+  const [toast, setToast] = useState<ToastMessage | undefined>(undefined);
   return (
     <AppContext.Provider
       value={{
