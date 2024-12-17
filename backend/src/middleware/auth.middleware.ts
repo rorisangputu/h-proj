@@ -2,7 +2,11 @@ import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from 'jsonwebtoken'
 
 declare global{
-    
+    namespace Express {
+        interface Request {
+            userId: string;
+        }
+    }
 }
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
