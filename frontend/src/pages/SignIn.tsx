@@ -21,6 +21,7 @@ const SignIn = () => {
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
       showToast({ message: "Sign In Successful", type: "SUCCESS" });
+      navigate("/");
     },
     onError: async (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
