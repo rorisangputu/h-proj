@@ -10,9 +10,11 @@ const SignIn = () => {
     register,
     formState: { errors },
   } = useForm<SignInFormData>();
+
   return (
     <form className="flex flex-col gap-5">
       <h2 className="text-3xl font-bold">Sign In</h2>
+
       <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
         Email
         <input
@@ -25,6 +27,7 @@ const SignIn = () => {
           <span className="text-red-700">{errors.email.message}</span>
         )}
       </label>
+
       <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
         Password
         <input
