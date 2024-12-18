@@ -20,8 +20,10 @@ export const register = async (formData: RegisterFormData) => {
     }
 };
 
-export const signIn = (formData: SignInFormData) => {
-
+export const signIn = async (formData: SignInFormData) => {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        
+    })
 }
 
 export const validateToken = async () => {
