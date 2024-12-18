@@ -12,7 +12,9 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<SignInFormData>();
 
-  const mutation = useMutation();
+    const mutation = useMutation(apiClient.SignIn, {
+      onSuccess
+  });
 
   return (
     <form className="flex flex-col gap-5">
