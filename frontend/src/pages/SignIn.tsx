@@ -6,7 +6,10 @@ export type SignInFormData = {
 };
 
 const SignIn = () => {
-  const { register } = useForm<SignInFormData>();
+  const {
+    register,
+    formState: { errors },
+  } = useForm<SignInFormData>();
   return (
     <form className="flex flex-col gap-5">
       <h2 className="text-3xl font-bold">Sign In</h2>
