@@ -11,16 +11,19 @@ const SignIn = () => {
   const {
     register,
     formState: { errors },
+    handleSubmit,
   } = useForm<SignInFormData>();
 
   const mutation = useMutation(apiClient.signIn, {
-      onSuccess: async () => {
-          console.log("user has been sign in")
-      },
-      onError: async () => {
-          console.log("Something went wrong")
-      }
+    onSuccess: async () => {
+      console.log("user has been sign in");
+    },
+    onError: async (error: Error) => {
+      console.log("Something went wrong");
+    },
   });
+
+  const onSubmit = handleSubmit(() => {});
 
   return (
     <form className="flex flex-col gap-5">
