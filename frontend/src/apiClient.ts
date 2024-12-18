@@ -26,8 +26,9 @@ export const signIn = async (formData: SignInFormData) => {
         credentials: "include",
         headers: {
             "Content-Type": "application/json"
-        }
-    })
+        },
+        body: JSON.stringify(formData),
+    });
 }
 
 export const validateToken = async () => {
