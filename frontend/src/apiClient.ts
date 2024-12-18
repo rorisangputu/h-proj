@@ -36,16 +36,21 @@ export const signIn = async (formData: SignInFormData) => {
     }
 
     return body
-}
+};
 
 export const validateToken = async () => {
     const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
         credentials: "include"
     });
 
-    if (!response.ok)
-    {
+    if (!response.ok) {
         throw new Error("Token invalid")
     }
     return response.json();
+};
+
+export const logout = async () => {
+    const res = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+        
+    })
 }
