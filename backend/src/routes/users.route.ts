@@ -36,7 +36,7 @@ router.post("/register", [
             expiresIn: "1d"
         });
 
-        res.cookie("auth_token", token, {
+        res.cookie("booking_auth_token", token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             maxAge: 86400000,
