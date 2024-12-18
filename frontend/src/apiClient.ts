@@ -55,5 +55,8 @@ export const logout = async () => {
         method: "POST"
     });
 
+    if (!res.ok) {
+        throw new Error("Error during sign out")
+    }
 
 }
