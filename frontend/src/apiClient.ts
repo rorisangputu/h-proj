@@ -25,7 +25,7 @@ export const signIn = async (formData: SignInFormData) => {
         method: "POST",
         credentials: "include",
         headers: {
-            "Content-Type": "application/son"
+            "Content-Type": "application/json"
         }
     })
 }
