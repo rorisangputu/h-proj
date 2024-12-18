@@ -19,8 +19,8 @@ const SignIn = () => {
 
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
-      console.log("user has been sign in");
-    },
+     showToast({message: "Sign In Successful", type: "SUCCESS"})
+    }
     onError: async (error: Error) => {
       console.log("Something went wrong");
     },
