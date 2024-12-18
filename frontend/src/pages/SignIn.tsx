@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
+import * as apiClient from "../apiClient";
 
 export type SignInFormData = {
   email: string;
@@ -12,8 +13,13 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<SignInFormData>();
 
-    const mutation = useMutation(apiClient.SignIn, {
-      onSuccess
+  const mutation = useMutation(apiClient.signIn, {
+      onSuccess: async () => {
+          console.log("user has been sign in")
+      },
+      onError: async () => {
+          console.log("Something went wrong")
+      }
   });
 
   return (
