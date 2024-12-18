@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import * as apiClient from "../apiClient";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../contexts/AppContext";
 
 export type SignInFormData = {
   email: string;
@@ -9,6 +10,7 @@ export type SignInFormData = {
 };
 
 const SignIn = () => {
+  const { showToast } = useAppContext();
   const {
     register,
     formState: { errors },
