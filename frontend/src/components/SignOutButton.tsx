@@ -1,7 +1,11 @@
 import { useMutation } from "react-query";
+import * as apiClient from "../apiClient";
 
 const SignOutButton = () => {
-  const mutation = useMutation();
+    const mutation = useMutation(apiClient.logout, {
+      
+  });
+
   return (
     <button
       className="p-3 bg-white text-blue-600 items-center 
