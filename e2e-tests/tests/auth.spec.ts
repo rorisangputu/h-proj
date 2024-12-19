@@ -32,5 +32,8 @@ test("should allow user to register", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Create an account" })).toBeVisible();
 
   await page.locator("[name=firstName]").fill("MarkusTest");
+  await page.locator("[name=lastName]").fill("JoosteTest");
+  
+
 })
 
