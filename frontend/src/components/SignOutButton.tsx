@@ -1,9 +1,12 @@
 import { useMutation } from "react-query";
 import * as apiClient from "../apiClient";
+import { useAppContext } from "../contexts/AppContext";
 
 const SignOutButton = () => {
-    const mutation = useMutation(apiClient.logout, {
-      
+  const { showToast } = useAppContext();
+  const mutation = useMutation(apiClient.logout, {
+    onSuccess: () => {},
+    onError: () => {},
   });
 
   return (
