@@ -5,8 +5,12 @@ import { useAppContext } from "../contexts/AppContext";
 const SignOutButton = () => {
   const { showToast } = useAppContext();
   const mutation = useMutation(apiClient.logout, {
-    onSuccess: () => {},
-    onError: () => {},
+    onSuccess: () => {
+      showToast({ message: "Logged Out", type: "SUCCESS" });
+    },
+      onError: () => {
+        
+    },
   });
 
   return (
