@@ -9,7 +9,7 @@ const SignOutButton = () => {
   const mutation = useMutation(apiClient.logout, {
     onSuccess: () => {
       showToast({ message: "Logged Out", type: "SUCCESS" });
-      
+      navigate("/");
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
