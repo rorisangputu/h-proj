@@ -8,11 +8,13 @@ const SignOutButton = () => {
     onSuccess: () => {
       showToast({ message: "Logged Out", type: "SUCCESS" });
     },
-      onError: () => {
-        
+    onError: () => {
+      showToast({ message: error.message, type: "ERROR" });
     },
   });
-
+  const onClick = () => {
+    mutation.mutate();
+  };
   return (
     <button
       className="p-3 bg-white text-blue-600 items-center 
