@@ -8,7 +8,7 @@ const SignOutButton = () => {
     onSuccess: () => {
       showToast({ message: "Logged Out", type: "SUCCESS" });
     },
-    onError: () => {
+    onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
     },
   });
