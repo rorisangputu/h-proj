@@ -14,13 +14,13 @@ const Header = () => {
           {isLoggedIn ? (
             <div className="flex gap-5 items-center">
               <Link
-                className="text-white font-semibold cursor-pointer"
+                className="text-white font-semibold cursor-pointer hover:text-gray-200 "
                 to={"/my-bookings"}
               >
                 My bookings
               </Link>
               <Link
-                className="text-white font-semibold cursor-pointer"
+                className="text-white font-semibold cursor-pointer hover:text-gray-200 "
                 to={"/my-hotels"}
               >
                 My Hotels
