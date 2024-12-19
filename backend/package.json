@@ -14,6 +14,8 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "npm install && npx tsc",
+    "start": "node ./dist/app.js",
     "e2e": "cross-env DOTENV_CONFIG_PATH=.env.e2e ts-node-dev --respawn --transpile-only src/app.ts"
   },
   "keywords": [],
