@@ -26,9 +26,11 @@ test("should allow user to register", async ({ page }) => {
   await page.goto(UI_URL);
 
   await page.getByRole("link", { name: "Sign In" }).click();
-  
+
   await page.getByRole("link", { name: "Sign Up" }).click();
   
   await expect(page.getByRole("heading", { name: "Create an account" })).toBeVisible();
+
+  await page.locator("[name=firstName]").fill("MarkusTest");
 })
 
