@@ -39,5 +39,7 @@ test("should allow user to register", async ({ page }) => {
 
   await page.getByRole("button", { name: "Create Account" }).click();
 
+  await expect(page.getByText("Registration success!")).toBeVisible();
+
 })
 
