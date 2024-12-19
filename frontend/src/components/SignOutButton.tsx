@@ -1,4 +1,7 @@
+import { useMutation } from "react-query";
+
 const SignOutButton = () => {
+  const mutation = useMutation();
   return (
     <button
       className="p-3 bg-white text-blue-600 items-center 
