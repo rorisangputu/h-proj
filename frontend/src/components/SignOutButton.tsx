@@ -1,12 +1,15 @@
 import { useMutation } from "react-query";
 import * as apiClient from "../apiClient";
 import { useAppContext } from "../contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const SignOutButton = () => {
   const { showToast } = useAppContext();
+  const navigate = useNavigate();
   const mutation = useMutation(apiClient.logout, {
     onSuccess: () => {
       showToast({ message: "Logged Out", type: "SUCCESS" });
+      
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
