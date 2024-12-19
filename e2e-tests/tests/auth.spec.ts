@@ -9,6 +9,7 @@ test('should allow user to sign in', async ({ page }) => {
   await page.getByRole("link", { name: "Sign In" }).click();
 
   await expect(page.getByRole("heading", { name: "Sign In" })).toBeVisible();
+  await page.locator("[name=email]").fill("rorisangputu@gmail.com")
 });
 
 test('get started link', async ({ page }) => {
