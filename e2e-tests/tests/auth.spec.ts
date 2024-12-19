@@ -25,5 +25,7 @@ test('should allow user to sign in', async ({ page }) => {
 test("should allow user to register", async ({ page }) => {
   await page.goto(UI_URL);
   await page.getByRole("link", { name: "Sign In" }).click();
+  await page.getByRole("link", { name: "Sign Up" }).click();
+  
 })
 
