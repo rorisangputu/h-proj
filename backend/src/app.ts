@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/users.route';
 import authRoutes from './routes/auth.route';
+import path from 'path';
 
 //Database Connection
 const dbConn = async () => {
@@ -31,6 +32,7 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3000;
 
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 // app.get("/test", (req, res) => {
 //     res.send({message: "helloooo"})
 // })
