@@ -9,7 +9,7 @@ import authRoutes from './routes/auth.route';
 //Database Connection
 const dbConn = async () => {
     try {
-        await mongoose.connect(process.env.MONGO as string)
+        await mongoose.connect(process.env.MONGO as string);
         console.log('Db Connected');
     } catch (error) {
         console.error('Db Connection Error:', error);
