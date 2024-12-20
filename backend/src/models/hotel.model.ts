@@ -1,3 +1,5 @@
+import mongoose, { Schema } from "mongoose";
+
 export type HotelType = {
     _id: string;
     userId: string;
@@ -13,4 +15,8 @@ export type HotelType = {
     starRating: number;
     imageUrls: string[];
     lastUpdated: Date;
-}
+};
+
+const hotelSchema = new Schema({
+    
+})
