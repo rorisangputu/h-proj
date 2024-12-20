@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/users.route';
 import authRoutes from './routes/auth.route';
+import myHotelRoutes from './routes/my-hotel.route';
 import path from 'path';
 import { v2 as cloudinary } from 'cloudinary';
 
@@ -54,7 +55,8 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 //Creating api routes
 app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/my-hotel", myHotelRoutes);
 
 
 //App listener
