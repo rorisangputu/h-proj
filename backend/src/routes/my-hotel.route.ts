@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import multer from 'multer'
+import cloudinary from "cloudinary";
 
 const router = express.Router();
 
@@ -20,7 +21,9 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
 
         //1.upload image to cloudinary
         const uploadPromise = imageFiles.map(async (image) => {
-            const b64 = Buffer.from(image.buffer).toString("base64")
+            const b64 = Buffer.from(image.buffer).toString("base64"); //converting image to base64 string
+            let dataURI = "data:" + image.mimetype + ";base64," + b64;
+            const res = await cloudinary.v2.uploader.upload(dataURI);
         })
         //2. if upload success, add urls to new hotels
         //3. save new hotel into db
