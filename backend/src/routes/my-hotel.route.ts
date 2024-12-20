@@ -3,6 +3,7 @@ import multer from 'multer'
 import cloudinary from "cloudinary";
 import Hotel, { HotelType } from "../models/hotel.model";
 import { verifyToken } from "../middleware/auth.middleware";
+import { body } from "express-validator";
 
 const router = express.Router();
 
@@ -16,7 +17,13 @@ const upload = multer({
 })
 
 // api/my-hotel
-router.post('/', verifyToken, upload.array("imageFiles", 6), async (req: Request, res: Response) => {
+router.post(
+    '/',
+    verifyToken,
+    [
+        body("name").notEmpty().withMessage('Name is required'),
+    ],
+    upload.array("imageFiles", 6), async (req: Request, res: Response) => {
     try {
         const imageFiles = req.files as Express.Multer.File[];
         const newHotel: HotelType = req.body;
