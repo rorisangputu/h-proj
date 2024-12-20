@@ -2,6 +2,7 @@ import Layout from "./layouts/Layout";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
+import AddHotel from "./pages/AddHotel";
 
 const App = () => {
   return (
@@ -39,7 +40,18 @@ const App = () => {
             </Layout>
           }
         />
-
+        {isLoggedIn && (
+          <>
+            <Route
+              path="/add-hotel"
+              element={
+                <Layout>
+                  <AddHotel />
+                </Layout>
+              }
+            />
+          </>
+        )}
         {/* CATCH ALL ROUTE */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
