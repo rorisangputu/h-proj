@@ -75,6 +75,27 @@ const DetailsSection = () => {
           <span className="text-red-700">{errors.pricePerNight.message}</span>
         )}
       </label>
+      <label
+        htmlFor=""
+        className="text-gray-700 text-sm font-bold max-w-[50%] md:max-w-[30%]"
+      >
+        Star Rating:
+        <select
+          id="starRating"
+          className="border rounded w-full py-2 px-2 mt-3 font-normal"
+          {...register("starRating", { required: "This field is required" })}
+        >
+          <option>Rating</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+        </select>
+        {errors.starRating && (
+          <span className="text-red-700">{errors.starRating.message}</span>
+        )}
+      </label>
     </div>
   );
 };
