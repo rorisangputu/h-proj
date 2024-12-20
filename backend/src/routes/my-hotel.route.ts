@@ -17,6 +17,14 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
     try {
         const imageFiles = req.files as Express.Multer.File[];
         const newHotel = req.body;
+
+        //1.upload image to cloudinary
+        const uploadPromise = imageFiles.map(async () => {
+            
+        })
+        //2. if upload success, add urls to new hotels
+        //3. save new hotel into db
+        //4. return 201 status
     } catch (error) {
         
     }
