@@ -30,6 +30,7 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
 
         const imageUrls = await Promise.all(uploadPromises);
         newHotel.imageUrls = imageUrls;
+        newHotel.lastUpdated = new Date();
         //2. if upload success, add urls to new hotels
 
         //3. save new hotel into db
