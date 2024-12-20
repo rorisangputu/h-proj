@@ -13,6 +13,6 @@ const upload = multer({
 })
 
 //api/my-hotel
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Response) => {
     
 })
