@@ -6,6 +6,21 @@ import cookieParser from 'cookie-parser';
 import userRoutes from './routes/users.route';
 import authRoutes from './routes/auth.route';
 import path from 'path';
+import { v2 as cloudinary } from 'cloudinary';
+
+const cloudinaryConn = async () => {
+    try {
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET
+        });
+        console.log("Cloudinary Connected.")
+    } catch (error) {
+         console.error('Db Connection Error:', error);
+        process.exit(1); // Exit the process if cloudinary connection fails
+    }
+}
 
 //Database Connection
 const dbConn = async () => {
