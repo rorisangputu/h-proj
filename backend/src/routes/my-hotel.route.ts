@@ -35,8 +35,12 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
         newHotel.userId = req.userId;
 
         //3. save new hotel into db
-        const hotel = new Hotel(newHotel);
+        const hotel = new Hotel(newHotel); //creating document object
+        await hotel.save();
+
         //4. return 201 status
+        res.status(201).send(hotel);
+        
     } catch (error) {
         console.log("Error creating hotel", error);
         res.status(500).json({ message: "Something went wrong" });
