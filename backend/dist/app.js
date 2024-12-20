@@ -52,6 +52,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const users_route_1 = __importDefault(require("./routes/users.route"));
 const auth_route_1 = __importDefault(require("./routes/auth.route"));
+const path_1 = __importDefault(require("path"));
 //Database Connection
 const dbConn = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -75,6 +76,7 @@ app.use((0, cors_1.default)({
     credentials: true,
 }));
 const PORT = process.env.PORT || 3000;
+app.use(express_1.default.static(path_1.default.join(__dirname, "../../frontend/dist")));
 // app.get("/test", (req, res) => {
 //     res.send({message: "helloooo"})
 // })
