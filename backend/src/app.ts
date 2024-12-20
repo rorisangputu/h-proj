@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 //Creating api routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/my-hotel", myHotelRoutes);
+app.use("/api/my-hotels", myHotelRoutes);
 
 
 //App listener
