@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import multer from 'multer'
 import cloudinary from "cloudinary";
-import { HotelType } from "../models/hotel.model";
+import Hotel, { HotelType } from "../models/hotel.model";
 
 const router = express.Router();
 
@@ -28,13 +28,14 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
             return res.url;
         });
 
+        //2. if upload success, add urls to new hotels
         const imageUrls = await Promise.all(uploadPromises);
         newHotel.imageUrls = imageUrls;
         newHotel.lastUpdated = new Date();
         newHotel.userId = req.userId;
-        //2. if upload success, add urls to new hotels
 
         //3. save new hotel into db
+        const hotel = new Hotel(newHotel);
         //4. return 201 status
     } catch (error) {
         console.log("Error creating hotel", error);
