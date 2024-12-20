@@ -60,5 +60,6 @@ app.use("/api/auth", authRoutes)
 //App listener
 app.listen(PORT, () => {
     dbConn();
+    cloudinaryConn();
     console.log("Listening on port:", PORT);
 });
