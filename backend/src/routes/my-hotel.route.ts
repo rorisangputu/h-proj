@@ -28,10 +28,13 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
         });
 
         const imageUrls = await Promise.all(uploadPromises);
+        
         //2. if upload success, add urls to new hotels
+
         //3. save new hotel into db
         //4. return 201 status
     } catch (error) {
-        
+        console.log("Error creating hotel", error);
+        res.status(500).json({ message: "Something went wrong" });
     }
 })
