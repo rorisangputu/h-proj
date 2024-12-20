@@ -59,7 +59,10 @@ const DetailsSection = () => {
           <span className="text-red-700">{errors.description.message}</span>
         )}
       </label>
-      <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
+      <label
+        htmlFor=""
+        className="text-gray-700 text-sm font-bold max-w-[50%] md:max-w-[30%]"
+      >
         Price Per Night
         <input
           type="number"
