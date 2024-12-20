@@ -16,7 +16,7 @@ const upload = multer({
 })
 
 // api/my-hotel
-router.post('/',verifyToken, upload.array("imageFiles", 6), async (req: Request, res: Response) => {
+router.post('/', verifyToken, upload.array("imageFiles", 6), async (req: Request, res: Response) => {
     try {
         const imageFiles = req.files as Express.Multer.File[];
         const newHotel: HotelType = req.body;
@@ -46,4 +46,6 @@ router.post('/',verifyToken, upload.array("imageFiles", 6), async (req: Request,
         console.log("Error creating hotel", error);
         res.status(500).json({ message: "Something went wrong" });
     }
-})
+});
+
+export default router;
