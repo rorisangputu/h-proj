@@ -1,3 +1,5 @@
+import { useForm } from "react-hook-form";
+
 export type HotelFormData = {
   name: string;
   city: string;
@@ -13,7 +15,11 @@ export type HotelFormData = {
 };
 
 const ManageHotelForm = () => {
-  return <div>ManageHotelForm</div>;
+    const formMethods = useForm<HotelFormData>();
+    return (
+        <form>
+            
+        </form>);
 };
 
 export default ManageHotelForm;
