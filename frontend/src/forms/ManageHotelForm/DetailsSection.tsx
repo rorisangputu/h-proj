@@ -82,15 +82,17 @@ const DetailsSection = () => {
         Star Rating:
         <select
           id="starRating"
-          className="border rounded w-full py-2 px-2 mt-3 font-normal"
+          className="border rounded w-full p-2 mt-3 font-normal text-gray-700"
           {...register("starRating", { required: "This field is required" })}
         >
-          <option>Rating</option>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
+          <option value={""} className="text-sm font-bold">
+            Rating
+          </option>
+          {[1, 2, 3, 4, 5].map((i, index) => (
+            <option key={index} value={i}>
+              {i}
+            </option>
+          ))}
         </select>
         {errors.starRating && (
           <span className="text-red-700">{errors.starRating.message}</span>
