@@ -59,6 +59,19 @@ const DetailsSection = () => {
           <span className="text-red-700">{errors.description.message}</span>
         )}
       </label>
+      <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
+        Price Per Night
+        <input
+          type="number"
+          id="pricePerNight"
+          min={1}
+          className="border rounded w-full py-2 px-2 mt-3 font-normal"
+          {...register("pricePerNight", { required: "This field is required" })}
+        />
+        {errors.pricePerNight && (
+          <span className="text-red-700">{errors.pricePerNight.message}</span>
+        )}
+      </label>
     </div>
   );
 };
