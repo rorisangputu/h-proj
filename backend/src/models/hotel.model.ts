@@ -1,4 +1,4 @@
-import { Schema, Model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 export type HotelType = {
     _id: string;
@@ -31,3 +31,7 @@ const hotelSchema = new Schema<HotelType>({
     imageUrls: [{ type: String, required: true }],
     lastUpdated: { type: Date, required: true },
 });
+
+const Hotel = model<HotelType>("Hotel", hotelSchema);
+
+export default Hotel;
