@@ -12,7 +12,11 @@ const upload = multer({
     }
 })
 
-//api/my-hotel
+// api/my-hotel
 router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Response) => {
-    
+    try {
+        const imageFiles = req.files as Express.Multer.File[];
+    } catch (error) {
+        
+    }
 })
