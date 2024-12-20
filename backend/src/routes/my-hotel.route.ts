@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import multer from 'multer'
 import cloudinary from "cloudinary";
+import { HotelType } from "../models/hotel.model";
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ const upload = multer({
 router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Response) => {
     try {
         const imageFiles = req.files as Express.Multer.File[];
-        const newHotel = req.body;
+        const newHotel: HotelType = req.body;
 
         //1.upload image to cloudinary
         const uploadPromises = imageFiles.map(async (image) => {
