@@ -19,8 +19,8 @@ router.post('/', upload.array("imageFiles", 6), async (req: Request, res: Respon
         const newHotel = req.body;
 
         //1.upload image to cloudinary
-        const uploadPromise = imageFiles.map(async () => {
-            
+        const uploadPromise = imageFiles.map(async (image) => {
+            const b64 = Buffer.from(image.buffer).toString("base64")
         })
         //2. if upload success, add urls to new hotels
         //3. save new hotel into db
