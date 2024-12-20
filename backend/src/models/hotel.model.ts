@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import { Schema, Model } from "mongoose";
 
 export type HotelType = {
     _id: string;
@@ -17,6 +17,17 @@ export type HotelType = {
     lastUpdated: Date;
 };
 
-const hotelSchema = new Schema({
-    
-})
+const hotelSchema = new Schema<HotelType>({
+    userId: { type: String, required: true },
+    name: { type: String, required: true },
+    city: { type: String, required: true },
+    country: { type: String, required: true },
+    description: { type: String, required: true },
+    adultCount: { type: Number, required: true },
+    childCount: { type: Number, required: true },
+    pricePerNight: { type: Number, required: true },
+    starRating: { type: Number, required: true, min: 1, max: 5 },
+    facilities: [{ type: String, required: true }],
+    imageUrls: [{ type: String, required: true }],
+    lastUpdated: { type: Date, required: true },
+});
