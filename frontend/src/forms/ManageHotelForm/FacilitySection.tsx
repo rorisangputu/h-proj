@@ -19,7 +19,13 @@ const FacilitySection = () => {
               value={facility}
               id=""
               {...register("facilities", {
-                required: "This field is required",
+                validate: (facilities) => {
+                  if (facilities && facilities.length > 0) {
+                    return true;
+                  } else {
+                    return "At least one facility is required";
+                  }
+                },
               })}
             />
             {facility}
