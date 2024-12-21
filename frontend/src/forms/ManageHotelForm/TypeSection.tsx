@@ -9,7 +9,7 @@ const TypeSection = () => {
       <h2 className="text-2xl font-bold mb-3">Type</h2>
       <div className="grid grid-cols-5 gap-2">
         {hotelTypes.map((type) => (
-          <label htmlFor="">
+          <label className={typeWatch === type ? "" : ""}>
             <input
               type="radio"
               value={type}
