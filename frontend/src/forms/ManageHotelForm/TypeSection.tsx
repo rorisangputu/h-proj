@@ -12,8 +12,8 @@ const TypeSection = () => {
           <label
             className={
               typeWatch === type
-                ? "cursor-pointer bg-blue-300 text-sm rounded-full px-4 py-2 font-semibold"
-                : ""
+                ? "cursor-pointer bg-blue-300 text-sm rounded-full flex items-center justify-center px-4 py-2 font-semibold"
+                : "cursor-pointer bg-gray-300 text-sm rounded-full flex items-center justify-center px-4 py-2 font-semibold"
             }
           >
             <input
@@ -22,6 +22,7 @@ const TypeSection = () => {
               {...register("type", {
                 required: "This field is required",
               })}
+              className="hidden"
             />
             <span>{type}</span>
           </label>
