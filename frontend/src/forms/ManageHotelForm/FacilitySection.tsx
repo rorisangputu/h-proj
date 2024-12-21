@@ -32,6 +32,11 @@ const FacilitySection = () => {
           </label>
         ))}
       </div>
+      {errors.facilities && (
+        <span className="text-red-600 text-sm font-bold">
+          {errors.facilities.message}
+        </span>
+      )}
     </div>
   );
 };
