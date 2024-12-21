@@ -9,9 +9,14 @@ const TypeSection = () => {
       <div className="grid grid-cols-5 gap-2">
         {hotelTypes.map((type) => (
           <label htmlFor="">
-                <input type="radio" value={type} {...register("type", {
-                    required: "This field is required"
-                })} />
+            <input
+              type="radio"
+              value={type}
+              {...register("type", {
+                required: "This field is required",
+              })}
+            />
+            <span>{type}</span>
           </label>
         ))}
       </div>
