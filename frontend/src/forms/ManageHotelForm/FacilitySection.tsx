@@ -14,8 +14,15 @@ const FacilitySection = () => {
       <div className="grid grid-cols-5 gap-3">
         {hotelFacilities.map((facility) => (
           <label>
-            <input type="checkbox" value={facility} name="" id="" />
-            <span>{facility}</span>
+            <input
+              type="checkbox"
+              value={facility}
+              id=""
+              {...register("facilities", {
+                required: "This field is required",
+              })}
+            />
+            {facility}
           </label>
         ))}
       </div>
