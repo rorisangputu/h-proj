@@ -3,7 +3,12 @@ import { hotelFacilities } from "../../config/hotel-options-config";
 import { HotelFormData } from "./ManageHotelForm";
 
 const FacilitySection = () => {
-  const { register } = useFormContext<HotelFormData>();
+    
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<HotelFormData>();
+    
   return <div>FacilitySection</div>;
 };
 
