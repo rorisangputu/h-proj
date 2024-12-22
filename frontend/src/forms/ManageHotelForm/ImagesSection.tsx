@@ -13,6 +13,8 @@ const ImagesSection = () => {
       <div className="border rounded p-4 flex flex-col gap-4">
         <input
           type="file"
+          multiple
+          accept="image/*"
           {...register("imageFiles", {
             validate: (imageFiles) => {
               const totalLength = imageFiles.length;
