@@ -22,6 +22,10 @@ export type HotelFormData = {
 const ManageHotelForm = () => {
   const formMethods = useForm<HotelFormData>();
   const { handleSubmit } = formMethods;
+
+  const onSubmit = handleSubmit((formData: HotelFormData) => {
+    
+  })
   return (
     <FormProvider {...formMethods}>
       <form className="flex flex-col gap-10">
