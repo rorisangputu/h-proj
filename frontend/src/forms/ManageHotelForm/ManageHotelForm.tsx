@@ -42,8 +42,9 @@ const ManageHotelForm = () => {
     }); //How to append an array to formData
 
     Array.from(formDataJSON.imageFiles).forEach((imageFile) => {
-      
-    })
+      formData.append(`imageFiles`, imageFile);
+    });
+    
     //console.log(formData);
   });
   return (
