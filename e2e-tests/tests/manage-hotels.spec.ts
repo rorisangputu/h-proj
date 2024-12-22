@@ -20,7 +20,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("should allow user to add a hotel", async ({ page }) => {
-    await page.goto(`${UI_URL}/add-hotel`);
+    await page.goto(`${UI_URL}add-hotel`);
 
     await page.locator('[name="name"]').fill("Test Hotel Bellagio");
     await page.locator('[name="city"]').fill("New York");
@@ -44,8 +44,8 @@ test("should allow user to add a hotel", async ({ page }) => {
 
     //Images upload
     await page.setInputFiles('[name="imageFiles"]', [
-        path.join(__dirname, "files", "bellagio2.png"),
-        path.join(__dirname, "files", "bellagio1.png"),
+        path.join(__dirname, "files", "bellagio2.jpeg"),
+        path.join(__dirname, "files", "bellagio1.jpeg"),
     ]);
 
     await page.getByRole("button", { name: "Save" }).click();
