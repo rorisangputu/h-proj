@@ -6,8 +6,12 @@ const ImagesSection = () => {
     register,
     formState: { errors },
   } = useFormContext<HotelFormData>();
-    
-  return <div>ImagesSection</div>;
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-3">Images</h2>
+    </div>
+  );
 };
 
 export default ImagesSection;
