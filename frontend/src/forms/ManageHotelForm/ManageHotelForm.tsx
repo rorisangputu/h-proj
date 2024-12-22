@@ -24,11 +24,11 @@ const ManageHotelForm = () => {
   const { handleSubmit } = formMethods;
 
   const onSubmit = handleSubmit((formData: HotelFormData) => {
-    
-  })
+    //Create new form data obj
+  });
   return (
     <FormProvider {...formMethods}>
-      <form className="flex flex-col gap-10">
+      <form onSubmit={onSubmit} className="flex flex-col gap-10">
         <DetailsSection />
         <TypeSection />
         <FacilitySection />
