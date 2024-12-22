@@ -3,6 +3,7 @@ import DetailsSection from "./DetailsSection";
 import TypeSection from "./TypeSection";
 import FacilitySection from "./FacilitySection";
 import GuestSection from "./GuestSection";
+import ImagesSection from "./ImagesSection";
 
 export type HotelFormData = {
   name: string;
@@ -27,6 +28,7 @@ const ManageHotelForm = () => {
         <TypeSection />
         <FacilitySection />
         <GuestSection />
+        <ImagesSection />
       </form>
     </FormProvider>
   );
