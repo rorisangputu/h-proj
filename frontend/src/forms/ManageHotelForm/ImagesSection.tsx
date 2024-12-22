@@ -15,6 +15,7 @@ const ImagesSection = () => {
           type="file"
           multiple
           accept="image/*"
+          className="w-full text-gray-700 font-normal"
           {...register("imageFiles", {
             validate: (imageFiles) => {
               const totalLength = imageFiles.length;
@@ -29,6 +30,11 @@ const ImagesSection = () => {
           })}
         />
       </div>
+      {errors.imageFiles && (
+        <span className="text-red-600 text-sm font-bold">
+          {errors.imageFiles.message}
+        </span>
+      )}
     </div>
   );
 };
