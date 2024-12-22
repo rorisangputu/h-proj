@@ -19,6 +19,11 @@ export type HotelFormData = {
   imageFiles: FileList;
 };
 
+type Props = {
+  onSave: (hotelFormData: FormData) => void;
+  isLoading: boolean;
+};
+
 const ManageHotelForm = () => {
   const formMethods = useForm<HotelFormData>();
   const { handleSubmit } = formMethods;
@@ -44,7 +49,7 @@ const ManageHotelForm = () => {
     Array.from(formDataJSON.imageFiles).forEach((imageFile) => {
       formData.append(`imageFiles`, imageFile);
     });
-    
+
     //console.log(formData);
   });
   return (
