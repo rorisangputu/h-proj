@@ -60,3 +60,7 @@ export const logout = async () => {
     }
 
 }
+
+export const addMyHotel = async () => {
+    
+}
