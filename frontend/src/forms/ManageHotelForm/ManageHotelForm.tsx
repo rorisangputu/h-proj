@@ -32,7 +32,7 @@ const ManageHotelForm = () => {
         <span className="flex justify-end">
           <button
             type="submit"
-            className="p-3 text-white bg-blue-600 hover:bg-blue-500 font-semibold text-xl"
+            className="p-3 text-white bg-blue-700 hover:bg-blue-600 font-semibold text-xl"
           >
             Save
           </button>
