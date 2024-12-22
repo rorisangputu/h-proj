@@ -48,7 +48,7 @@ const DetailsSection = () => {
         </label>
       </div>
       <label htmlFor="" className="text-gray-700 text-sm font-bold flex-1">
-        Country
+        Description
         <textarea
           id="description"
           rows={10}
