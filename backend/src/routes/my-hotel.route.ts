@@ -94,14 +94,16 @@ router.put("/:id", verifyToken, upload.array("imageFiles"), async (req: Request,
         if (!hotel) return res.status(404).json({ message: "Hotel not found" });
 
         const files = req.files as Express.Multer.File[];
+        const updateImageUrls = await uploadImages(files);
 
+        hotel.imageUrls = [...updateImageUrls, ...(updatedHotel.imageUrls || [])];
 
-
+        await hotel.save();
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
     }
 })
-export default router;
+
 
 async function uploadImages(imageFiles: Express.Multer.File[]) {
     const uploadPromises = imageFiles.map(async (image) => {
@@ -114,4 +116,6 @@ async function uploadImages(imageFiles: Express.Multer.File[]) {
     //2. if upload success, add urls to new hotels
     const imageUrls = await Promise.all(uploadPromises);
     return imageUrls;
-}
+};
+
+export default router;
