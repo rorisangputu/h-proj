@@ -33,6 +33,7 @@ router.post(
         body("facilities").notEmpty().isArray().withMessage('Facilities are required and must be array'),
     ],
     upload.array("imageFiles", 6), async (req: Request, res: Response) => {
+        //console.log(req.body);
     try {
         const imageFiles = req.files as Express.Multer.File[];
         const newHotel: HotelType = req.body;

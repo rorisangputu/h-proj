@@ -31,7 +31,7 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
   const onSubmit = handleSubmit((formDataJSON: HotelFormData) => {
     //Create new form data obj
     const formData = new FormData();
-
+    //console.log(formDataJSON);
     formData.append("name", formDataJSON.name);
     formData.append("city", formDataJSON.city);
     formData.append("country", formDataJSON.country);
@@ -49,7 +49,7 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
     Array.from(formDataJSON.imageFiles).forEach((imageFile) => {
       formData.append(`imageFiles`, imageFile);
     });
-    //console.log(formData);
+    console.log(JSON.stringify(formData));
     onSave(formData);
   });
   return (
