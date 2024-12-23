@@ -40,15 +40,7 @@ router.post(
         const newHotel: HotelType = req.body;
 
         //1.upload image to cloudinary
-        const uploadPromises = imageFiles.map(async (image) => {
-            const b64 = Buffer.from(image.buffer).toString("base64"); //converting image to base64 string
-            let dataURI = "data:" + image.mimetype + ";base64," + b64; //creating a string that describes image
-            const res = await cloudinary.v2.uploader.upload(dataURI); //usinf cloudinary sdk to upload image to cloudinary
-            return res.url;
-        });
-
-        //2. if upload success, add urls to new hotels
-        const imageUrls = await Promise.all(uploadPromises);
+        const imageUrls = await uploadImages(imageFiles);
         newHotel.imageUrls = imageUrls;
         newHotel.lastUpdated = new Date();
         newHotel.userId = req.userId;
@@ -101,8 +93,25 @@ router.put("/:id", verifyToken, upload.array("imageFiles"), async (req: Request,
 
         if (!hotel) return res.status(404).json({ message: "Hotel not found" });
 
+        const files = req.files as Express.Multer.File[];
+
+
+
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
     }
 })
 export default router;
+
+async function uploadImages(imageFiles: Express.Multer.File[]) {
+    const uploadPromises = imageFiles.map(async (image) => {
+        const b64 = Buffer.from(image.buffer).toString("base64"); //converting image to base64 string
+        let dataURI = "data:" + image.mimetype + ";base64," + b64; //creating a string that describes image
+        const res = await cloudinary.v2.uploader.upload(dataURI); //usinf cloudinary sdk to upload image to cloudinary
+        return res.url;
+    });
+
+    //2. if upload success, add urls to new hotels
+    const imageUrls = await Promise.all(uploadPromises);
+    return imageUrls;
+}
