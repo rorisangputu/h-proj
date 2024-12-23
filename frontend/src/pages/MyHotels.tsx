@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import * as apiClient from "../apiClient";
 import { useQuery } from "react-query";
 import { useAppContext } from "../contexts/AppContext";
+import { BsMap } from "react-icons/bs";
 
 const MyHotels = () => {
   const { showToast } = useAppContext();
@@ -34,7 +35,8 @@ const MyHotels = () => {
               {hotel.description}
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2">
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
+                <BsMap />
                 {hotel.city}, {hotel.country}
               </div>
             </div>
