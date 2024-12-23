@@ -4,6 +4,7 @@ import TypeSection from "./TypeSection";
 import FacilitySection from "./FacilitySection";
 import GuestSection from "./GuestSection";
 import ImagesSection from "./ImagesSection";
+import { HotelType } from "../../../../backend/src/shared/types";
 
 export type HotelFormData = {
   name: string;
@@ -22,6 +23,7 @@ export type HotelFormData = {
 type Props = {
   onSave: (hotelFormData: FormData) => void;
   isLoading: boolean;
+  hotel: HotelType;
 };
 
 const ManageHotelForm = ({ onSave, isLoading }: Props) => {
