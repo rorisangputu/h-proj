@@ -57,7 +57,7 @@ test("should display hotels", async ({ page }) => {
 
     await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
 
-    await expect(page.getByText("Test Hotel Bellagio")).toBeVisible();
+    await expect(page.getByText("Dublin Getaways")).toBeVisible();
     await expect(page.getByText("Lorem ipsum")).toBeVisible();
     await expect(page.getByText("Dublin, Ireland")).toBeVisible();
     await expect(page.getByText("All Inclusive")).toBeVisible();
