@@ -19,6 +19,7 @@ export type HotelFormData = {
   childCount: number;
   facilities: string[];
   imageFiles: FileList;
+  imageUrls: string[];
 };
 
 type Props = {
