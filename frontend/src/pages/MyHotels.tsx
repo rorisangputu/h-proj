@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import * as apiClient from "../apiClient";
 import { useQuery } from "react-query";
 import { useAppContext } from "../contexts/AppContext";
-import { BsMap } from "react-icons/bs";
+import { BsBuilding, BsMap } from "react-icons/bs";
+import { BiHotel, BiMoney, BiStar } from "react-icons/bi";
 
 const MyHotels = () => {
   const { showToast } = useAppContext();
@@ -34,20 +35,27 @@ const MyHotels = () => {
             <div className="whitespace-pre-line line-clamp-1 ">
               {hotel.description}
             </div>
-            <div className="flex">
-              <span className="flex items-center gap-2">
+            <div className="grid grid-cols-2  lg:grid-cols-3 xl:grid-cols-5 gap-2">
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
                 <BsMap />
                 {hotel.city}, {hotel.country}
-              </span>
-              <p>{hotel.type}</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-              {hotel.facilities.map((facility) => (
-                <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
-                  <BsMap />
-                  {facility}
-                </div>
-              ))}
+              </div>
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
+                <BsBuilding className="text-amber-900" />
+                {hotel.type}
+              </div>
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
+                <BiMoney className="text-green-600" />R {hotel.pricePerNight} /
+                per night
+              </div>
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
+                <BiHotel className="text-red-600" />
+                {hotel.adultCount} adults, {hotel.childCount} children
+              </div>
+              <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
+                <BiStar className="text-yellow-400" />
+                {hotel.starRating}
+              </div>
             </div>
           </div>
         ))}
