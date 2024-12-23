@@ -77,4 +77,8 @@ router.get("/", verifyToken, async (req: Request, res: Response) => {
 
 })
 
+router.get("/:id", verifyToken, async (req: Request, res: Response) => {
+    
+})
+
 export default router;
