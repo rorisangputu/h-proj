@@ -87,7 +87,7 @@ export const getMyHotels = async (): Promise<HotelType[]> => {
 }
 
 export const getMyHotel = async (hotelId: string): Promise<HotelType> => {
-    const response = await fetch(`${API_BASE_URL}/api/my-hotel/${hotelId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/my-hotels/${hotelId}`, {
         credentials: "include"
     })
 
