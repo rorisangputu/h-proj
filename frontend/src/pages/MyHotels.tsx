@@ -54,7 +54,7 @@ const MyHotels = () => {
               </div>
               <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
                 <BiStar className="text-yellow-400" />
-                {hotel.starRating}
+                Rating: {hotel.starRating}
               </div>
             </div>
             <span className="flex justify-end">
