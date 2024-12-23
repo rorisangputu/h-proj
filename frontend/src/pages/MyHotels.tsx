@@ -34,10 +34,13 @@ const MyHotels = () => {
             <div className="whitespace-pre-line line-clamp-1 ">
               {hotel.description}
             </div>
-            <span className="flex items-center gap-2">
-              <BsMap />
-              {hotel.city}, {hotel.country}
-            </span>
+            <div className="flex">
+              <span className="flex items-center gap-2">
+                <BsMap />
+                {hotel.city}, {hotel.country}
+              </span>
+              <p>{hotel.type}</p>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4">
               {hotel.facilities.map((facility) => (
                 <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
