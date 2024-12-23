@@ -89,4 +89,11 @@ router.get("/:id", verifyToken, async (req: Request, res: Response) => {
     
 })
 
+router.put("/:id", verifyToken, upload.array("imageFiles"), async (req: Request, res: Response) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong" });
+    }
+})
 export default router;
