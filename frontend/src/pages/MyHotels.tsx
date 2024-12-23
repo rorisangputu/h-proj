@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import * as apiClient from "../apiClient";
+import { useQuery } from "react-query";
+import { useAppContext } from "../contexts/AppContext";
 
 const MyHotels = () => {
+  const { showToast } = useAppContext();
+  const { data: hotelData } = useQuery("getMyHotels", apiClient.getMyHotels, {
+    onError: () => {
+      showToast({ message: "Couldn't get Hotels", type: "ERROR" });
+    },
+  });
   return (
     <div className="space-y-5">
       <span className="flex justify-between items-center">
