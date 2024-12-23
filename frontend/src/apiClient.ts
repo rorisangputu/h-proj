@@ -73,3 +73,7 @@ export const addMyHotel = async (hotelFormData: FormData) => {
     }
     return response.json();
 }
+
+export const getMyHotels = async () => {
+    
+}
