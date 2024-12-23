@@ -85,3 +85,4 @@ export const getMyHotels = async (): Promise<HotelType[]> => {
 
     return res.json();
 }
+
