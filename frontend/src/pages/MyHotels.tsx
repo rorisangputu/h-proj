@@ -10,6 +10,11 @@ const MyHotels = () => {
       showToast({ message: "Couldn't get Hotels", type: "ERROR" });
     },
   });
+
+  if (!hotelData) {
+    return <span>No Hotels found</span>;
+  }
+
   return (
     <div className="space-y-5">
       <span className="flex justify-between items-center">
@@ -21,6 +26,11 @@ const MyHotels = () => {
           Add Hotel
         </Link>
       </span>
+      <div className="grid grid-cols-1 gap-8">
+        {hotelData?.map(() => (
+          <div></div>
+        ))}
+      </div>
     </div>
   );
 };
