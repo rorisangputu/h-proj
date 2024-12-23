@@ -9,7 +9,11 @@ const ImagesSection = () => {
   } = useFormContext<HotelFormData>();
 
   const existingImageUrls = watch("imageUrls");
+  const handleDelete = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, imageUrl: string) => {
+    event.preventDefault();
 
+    
+  }
   return (
     <div>
       <h2 className="text-2xl font-bold mb-3">Images</h2>
