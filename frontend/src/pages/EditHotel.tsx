@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import * as apiClient from "../apiClient";
+import ManageHotelForm from "../forms/ManageHotelForm/ManageHotelForm";
 
 const EditHotel = () => {
   const { hotelId } = useParams();
@@ -12,7 +13,12 @@ const EditHotel = () => {
       enabled: !!hotelId,
     }
   );
-  return <div>EditHotel</div>;
+
+  return (
+    <div>
+      <ManageHotelForm hotel={hotel} />
+    </div>
+  );
 };
 
 export default EditHotel;
