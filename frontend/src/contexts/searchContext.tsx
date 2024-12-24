@@ -1,3 +1,5 @@
+import React from "react";
+
 type SearchContext = {
   destination: string;
   checkIn: Date;
@@ -14,4 +16,4 @@ type SearchContext = {
   ) => void;
 };
 
-
+const SearchContext = React.createContext<SearchContext | undefined>(undefined);
