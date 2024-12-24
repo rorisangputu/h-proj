@@ -62,7 +62,17 @@ const SearchBar = () => {
         </label>
       </div>
       <div>
-        <DatePicker />
+        <DatePicker
+          selected={checkIn}
+          onChange={(date) => setCheckIn(date as Date)}
+          selectsStart
+          startDate={checkIn}
+          endDate={checkOut}
+          minDate={minDate}
+          maxDate={maxDate}
+          placeholderText="Check-in Date"
+          className="min-w-full bg-white p-2 focus:outline-none"
+        />
       </div>
     </form>
   );
