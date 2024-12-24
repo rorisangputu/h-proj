@@ -1,5 +1,6 @@
 import express, { Router, Response, Request } from 'express';
 import Hotel from '../models/hotel.model';
+import { HotelSearchResponse } from '../shared/types';
 
 const router = Router();
 
@@ -15,7 +16,7 @@ router.get("/search", async (req: Request, res: Response) => {
 
         const total = await Hotel.countDocuments();
 
-        const respone = {
+        const respone: HotelSearchResponse = {
             data: hotels,
             pagination: {
                 total,
@@ -25,7 +26,7 @@ router.get("/search", async (req: Request, res: Response) => {
         };
 
         res.json(respone);
-        
+
     } catch (error) {
         console.log("error", error);
         res.status(500).json({ message: "Something went wrong" });
