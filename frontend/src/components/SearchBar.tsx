@@ -22,6 +22,9 @@ const SearchBar = () => {
     );
   };
 
+  const minDate = new Date();
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() + 1);
   return (
     <form
       className="-mt-8 p-3 items-center gap-4 bg-orange-500 rounded 
