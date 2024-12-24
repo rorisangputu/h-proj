@@ -1,6 +1,7 @@
-import { FormEvent } from "react";
-import { useSearchContext } from "../contexts/SearchContext";
+import { FormEvent, useState } from "react";
+import { useSearchContext } from "../contexts/searchContext";
 import { MdTravelExplore } from "react-icons/md";
+import DatePicker from "react-datepicker";
 
 const SearchBar = () => {
   const search = useSearchContext();
@@ -35,6 +36,33 @@ const SearchBar = () => {
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
         />
+      </div>
+      <div className="flex bg-white px-2 py-1 gap-2">
+        <label className="items-center flex">
+          Adults:
+          <input
+            className="w-full p-1 focus:outline-none font-bold"
+            type="number"
+            min={1}
+            max={20}
+            value={adultCount}
+            onChange={(event) => setAdultCount(parseInt(event.target.value))}
+          />
+        </label>
+        <label className="items-center flex">
+          Children:
+          <input
+            className="w-full p-1 focus:outline-none font-bold"
+            type="number"
+            min={0}
+            max={20}
+            value={childCount}
+            onChange={(event) => setChildCount(parseInt(event.target.value))}
+          />
+        </label>
+      </div>
+      <div>
+        <DatePicker />
       </div>
     </form>
   );
