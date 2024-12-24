@@ -24,6 +24,7 @@ const SearchBar = () => {
       adultCount,
       childCount
     );
+    navigate("/search");
   };
 
   const minDate = new Date();
