@@ -31,6 +31,7 @@ const SearchBar = () => {
   maxDate.setFullYear(maxDate.getFullYear() + 1);
   return (
     <form
+      onSubmit={handleSubmit}
       className="-mt-8 p-3 items-center gap-4 bg-orange-500 rounded 
         shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
     >
@@ -79,7 +80,30 @@ const SearchBar = () => {
           maxDate={maxDate}
           placeholderText="Check-in Date"
           className="min-w-full bg-white p-2 focus:outline-none"
+          wrapperClassName="min-w-full"
         />
+      </div>
+      <div>
+        <DatePicker
+          selected={checkOut}
+          onChange={(date) => setCheckOut(date as Date)}
+          selectsStart
+          startDate={checkIn}
+          endDate={checkOut}
+          minDate={minDate}
+          maxDate={maxDate}
+          placeholderText="Check-in Date"
+          className="min-w-full bg-white p-2 focus:outline-none"
+          wrapperClassName="min-w-full"
+        />
+      </div>
+      <div className="flex gap-1">
+        <button className="w-2/3 bg-blue-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500">
+          Search
+        </button>
+        <button className="w-1/3 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500">
+          Clear
+        </button>
       </div>
     </form>
   );
