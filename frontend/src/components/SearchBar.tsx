@@ -33,6 +33,7 @@ const SearchBar = () => {
           placeholder="Where are you going?"
           className="text-md w-full focus:outline-none"
           value={destination}
+          onChange={(event) => setDestination(event.target.value)}
         />
       </div>
     </form>
