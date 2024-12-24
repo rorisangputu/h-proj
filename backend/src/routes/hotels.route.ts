@@ -12,6 +12,20 @@ router.get("/search", async (req: Request, res: Response) => {
         const skip = (pageNum - 1) * pageSize; //Telling db to skip items
 
         const hotels = await Hotel.find().skip(skip).limit(pageSize); 
+
+        const total = await Hotel.countDocuments();
+
+        const respone = {
+            data: hotels,
+            pagination: {
+                total,
+                page: pageNum,
+                pages: Math.ceil(total / pageSize),
+            },
+        };
+
+        res.json(respone);
+        
     } catch (error) {
         console.log("error", error);
         res.status(500).json({ message: "Something went wrong" });
