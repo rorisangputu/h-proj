@@ -131,5 +131,10 @@ export const searchHotels = async (searchParams: SearchParams) => {
     queryParams.append("childCount", searchParams.childCount || "");
     queryParams.append("page", searchParams.page || "");
 
-    const response = await fetch(`${API_BASE_URL}/api/hotels/search?${queryParams}`)
+    const response = await fetch(`${API_BASE_URL}/api/hotels/search?${queryParams}`);
+
+    if (!response.ok) {
+        throw new Error("Error fetching hotels")
+    }
+    
 }
