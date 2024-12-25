@@ -136,5 +136,6 @@ export const searchHotels = async (searchParams: SearchParams) => {
     if (!response.ok) {
         throw new Error("Error fetching hotels")
     }
-    
+
+    return response.json();
 }
