@@ -113,3 +113,11 @@ export const updateMyHotelById = async (hotelFormData: FormData) => {
     return response.json();
 }
 
+export type SearchParams = {
+    destination: string;
+    checkIn: string;
+    checkOut: string;
+    adultCount: number;
+    childCount: number;
+    page: string;
+}
