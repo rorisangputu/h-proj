@@ -16,9 +16,12 @@ const SearchPage = () => {
     page: page.toString(),
   };
 
-  const { data: hotelData } = useQuery(["searchHotels", searchParams], () => {
-    apiClient.searchHotels(searchParams);
-  });
+  // Specify the type of data returned by the query
+  const { data: hotelData } = useQuery(
+    ["searchHotels", searchParams],
+    () => apiClient.searchHotels(searchParams) // Ensure this returns a promise
+  );
+  // console.log(data);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-4">
@@ -31,8 +34,15 @@ const SearchPage = () => {
           {/* FILTERS */}
         </div>
       </div>
-      
+
       {/* SEARCH RESULTS */}
+      <div className="flex flex-col gap-5">
+        <div className="flex justify-between items-center">
+          <span className="text-xl font-bold">
+            {hotelData?.pagination.total} Hotels found
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
