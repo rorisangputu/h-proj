@@ -16,11 +16,15 @@ const SearchPage = () => {
     page: page.toString(),
   };
 
-  const { data: hotelData } = useQuery(["searchHotels", searchParms], () => {
+  const { data: hotelData } = useQuery(["searchHotels", searchParams], () => {
     apiClient.searchHotels(searchParams);
   });
 
-  return <div>SearchPage</div>;
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-4">
+      
+    </div>
+  );
 };
 
 export default SearchPage;
