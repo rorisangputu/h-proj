@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { useSearchContext } from "../contexts/searchContext";
 import * as apiClient from "../apiClient";
 import { useState } from "react";
+import SearchResultsCard from "../components/SearchResultsCard";
 
 const SearchPage = () => {
   const search = useSearchContext();
@@ -45,7 +46,7 @@ const SearchPage = () => {
           {/* SORT OPTIONS */}
         </div>
         {hotelData?.data.map((hotel) => (
-          <SearchResultCard hotel={hotel} />
+          <SearchResultsCard hotel={hotel} />
         ))}
       </div>
     </div>
