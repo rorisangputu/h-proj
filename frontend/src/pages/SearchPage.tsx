@@ -4,10 +4,12 @@ import * as apiClient from "../apiClient";
 import { useState } from "react";
 import SearchResultsCard from "../components/SearchResultsCard";
 import Pagination from "../components/Pagination";
+import StarRatingFilter from "../components/StarRatingFilter";
 
 const SearchPage = () => {
   const search = useSearchContext();
   const [page, setPage] = useState<number>(1);
+  const [selectedStars, setSelectedStars] = useState<string[]>([]);
 
   const searchParams = {
     destination: search.destination,
@@ -23,7 +25,16 @@ const SearchPage = () => {
     ["searchHotels", searchParams],
     () => apiClient.searchHotels(searchParams) // Ensure this returns a promise
   );
-  // console.log(data);
+
+  const handleStarsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const starRating = event.target.value;
+
+    setSelectedStars((prevStars) =>
+      event.target.checked
+        ? [...prevStars, starRating]
+        : prevStars.filter((star) => star !== starRating)
+    );
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-4">
@@ -33,7 +44,7 @@ const SearchPage = () => {
           <h3 className="text-lg font-semibold border-b border-slate-300 pb-5">
             Filter by:
           </h3>
-          {/* FILTERS */}
+          <StarRatingFilter />
         </div>
       </div>
 
