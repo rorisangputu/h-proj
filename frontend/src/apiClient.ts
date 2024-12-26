@@ -135,6 +135,11 @@ export const searchHotels = async (searchParams: SearchParams): Promise<HotelSea
     queryParams.append("adultCount", searchParams.adultCount || "");
     queryParams.append("childCount", searchParams.childCount || "");
     queryParams.append("page", searchParams.page || "");
+    queryParams.append("maxPrice", searchParams.maxPrice || "");
+    queryParams.append("sortOptions", searchParams.sortOption || "");
+
+    
+
 
     const response = await fetch(`${API_BASE_URL}/api/hotels/search?${queryParams}`);
 
