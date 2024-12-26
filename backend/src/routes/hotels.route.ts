@@ -12,17 +12,29 @@ router.get("/search", async (req: Request, res: Response) => {
 
         };
         switch (req.query.sortOptions) {
+            case "starRating":
+                sortOptions = { starRating: -1 };
+                break;
             
+            case "pricePerNightAsc":
+                sortOptions = { pricePerNight: 1 };
+                break;
+            case "pricePerNightDesc":
+                sortOptions = { pricePerNight: -1 };
+                break;
         }
 
-        
+
         const pageSize = 5;
         const pageNum = parseInt(req.query.page ? req.query.page.toString() : "1");
         
         //If user asks for page 3 logic is to skip 2 pages and 10 items
         const skip = (pageNum - 1) * pageSize; //Telling db to skip items
 
-        const hotels = await Hotel.find(query).skip(skip).limit(pageSize); 
+        const hotels = await Hotel.find(query) //order of below matters
+            .sort(sortOptions) //sorts results based on options
+            .skip(skip) //Adds paginations results after
+            .limit(pageSize); 
 
         const total = await Hotel.countDocuments(query);
 
