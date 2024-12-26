@@ -7,6 +7,15 @@ const router = Router();
 router.get("/search", async (req: Request, res: Response) => {
     try {
         const query = constructSearchQuery(req.query);
+
+        let sortOptions = {
+
+        };
+        switch (req.query.sortOptions) {
+            
+        }
+
+        
         const pageSize = 5;
         const pageNum = parseInt(req.query.page ? req.query.page.toString() : "1");
         
