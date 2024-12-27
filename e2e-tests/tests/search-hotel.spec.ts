@@ -18,3 +18,12 @@ test.beforeEach(async ({ page }) => {
     
     await expect(page.getByText("Sign In Successful")).toBeVisible();
 });
+
+test("should show hotel search results", async ({ page }) => {
+    await page.goto(UI_URL);
+
+    await page.getByPlaceholder("Where are you going?").fill("New York")
+    await page.getByRole("button", { name: "Search" }).click();
+
+    await expect(page.getByText("Hotels found in New York"))
+})
