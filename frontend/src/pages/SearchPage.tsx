@@ -12,6 +12,7 @@ const SearchPage = () => {
   const [page, setPage] = useState<number>(1);
   const [selectedStars, setSelectedStars] = useState<string[]>([]);
   const [selectedHotelTypes, setSelectedHotelTypes] = useState<string[]>([]);
+  const [selectedFacilities, setSelectedFacilities] = useState<string[]>([]);
 
   const searchParams = {
     destination: search.destination,
