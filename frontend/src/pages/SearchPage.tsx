@@ -18,6 +18,7 @@ const SearchPage = () => {
     adultCount: search.adultCount.toString(),
     childCount: search.childCount.toString(),
     page: page.toString(),
+    stars: selectedStars,
   };
 
   // Specify the type of data returned by the query
@@ -44,7 +45,10 @@ const SearchPage = () => {
           <h3 className="text-lg font-semibold border-b border-slate-300 pb-5">
             Filter by:
           </h3>
-          <StarRatingFilter />
+          <StarRatingFilter
+            selectedStars={selectedStars}
+            onChange={handleStarsChange}
+          />
         </div>
       </div>
 
