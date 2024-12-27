@@ -1,9 +1,8 @@
-
+import { useParams } from "react-router-dom";
 
 const Details = () => {
-  return (
-    <div>Details</div>
-  )
-}
+  const { hotelId } = useParams();
+  return <div>Details</div>;
+};
 
-export default Details
+export default Details;
