@@ -27,6 +27,7 @@ const SearchPage = () => {
     stars: selectedStars,
     types: selectedHotelTypes,
     facilities: selectedFacilities,
+    maxPrice: selectedPrice?.toString(),
   };
 
   // Specify the type of data returned by the query
