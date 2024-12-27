@@ -156,4 +156,8 @@ export const searchHotels = async (searchParams: SearchParams): Promise<HotelSea
     }
 
     return response.json();
+};
+
+export const fetchHotelById = async (hotelId: string) => {
+    const respone = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}`)
 }
