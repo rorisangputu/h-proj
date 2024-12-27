@@ -6,6 +6,7 @@ import SearchResultsCard from "../components/SearchResultsCard";
 import Pagination from "../components/Pagination";
 import StarRatingFilter from "../components/StarRatingFilter";
 import HotelTypesFilter from "../components/HotelTypesFilter";
+import FacilitiesFilter from "../components/FacilitiesFilter";
 
 const SearchPage = () => {
   const search = useSearchContext();
@@ -53,6 +54,16 @@ const SearchPage = () => {
     );
   };
 
+  const handleFacilityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const hotelFacility = event.target.value;
+
+    setSelectedFacilities((prevFacility) =>
+      event.target.checked
+        ? [...prevFacility, hotelFacility]
+        : prevFacility.filter((facility) => facility !== hotelFacility)
+    );
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-4">
       {/* FILTER BAR */}
@@ -68,6 +79,10 @@ const SearchPage = () => {
           <HotelTypesFilter
             selectedHotelTypes={selectedHotelTypes}
             onChange={handleHotelTypeChange}
+          />
+          <FacilitiesFilter
+            selectedFacilities={selectedFacilities}
+            onChange={handleFacilityChange}
           />
         </div>
       </div>
