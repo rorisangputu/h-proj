@@ -2,11 +2,11 @@ import React from "react";
 import { hotelTypes } from "../config/hotel-options-config";
 
 type Props = {
-  selectedHotelTypes: string[];
+  selectedFacilities: string[];
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const FacilitiesFilter = ({ selectedHotelTypes, onChange }: Props) => {
+const FacilitiesFilter = ({ selectedFacilities, onChange }: Props) => {
   return (
     <div className="border-b border-slate-300 pb-5">
       <h4 className="text-md font-semibold mb-2">Hotel Type</h4>
@@ -16,7 +16,7 @@ const FacilitiesFilter = ({ selectedHotelTypes, onChange }: Props) => {
             type="checkbox"
             className="rounded"
             value={type}
-            checked={selectedHotelTypes.includes(type)}
+            checked={selectedFacilities.includes(type)}
             onChange={onChange}
           />
           <span>{type}</span>
