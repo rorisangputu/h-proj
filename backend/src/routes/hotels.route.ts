@@ -19,7 +19,8 @@ router.get("/:id",
       const hotel = await Hotel.findById(id);
       res.json(hotel);
     } catch (error) {
-      
+      console.log(error);
+      res.status(500).json({ message: "Error fetching hotel" });
     }
 });
 
