@@ -25,5 +25,6 @@ test("should show hotel search results", async ({ page }) => {
     await page.getByPlaceholder("Where are you going?").fill("New York")
     await page.getByRole("button", { name: "Search" }).click();
 
-    await expect(page.getByText("Hotels found in New York"))
+    await expect(page.getByText("Hotels found in New York")).toBeVisible();
+    await expect(page.getByText("Test Hotel Bellagio").nth(0)).toBeVisible();
 })
