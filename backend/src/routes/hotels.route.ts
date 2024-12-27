@@ -1,14 +1,17 @@
 import express, { Router, Response, Request } from 'express';
 import Hotel from '../models/hotel.model';
 import { HotelSearchResponse } from '../shared/types';
-import { param } from 'express-validator';
+import { param, validationResult } from 'express-validator';
 
 const router = Router();
 
 router.get("/:id",
   [param("id").notEmpty().withMessage("Hotel ID is required")],
   async (req: Request, res: Response) => {
-  
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      
+    }
 });
 
 router.get("/search", async (req: Request, res: Response) => {
