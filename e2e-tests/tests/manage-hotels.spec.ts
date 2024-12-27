@@ -75,7 +75,7 @@ test("should be able to edit hotel", async ({ page }) => {
 
     await page.waitForSelector('[name="name"]', { state: "attached" });
     await expect(page.locator('[name="name"]')).toHaveValue('Dublin Getaways');
-    await page.locator('[name="name"]').fill("Dublin Resort");
+    await page.locator('[name="name"]').fill("Dublin Retreat");
     await page.getByRole("button", { name: "Save" }).click();
     await expect(page.getByText("Updated Hotel!")).toBeVisible();
 
