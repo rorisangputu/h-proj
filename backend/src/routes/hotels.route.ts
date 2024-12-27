@@ -4,6 +4,10 @@ import { HotelSearchResponse } from '../shared/types';
 
 const router = Router();
 
+router.get("/:id", async (req: Request, res: Response) => {
+  
+});
+
 router.get("/search", async (req: Request, res: Response) => {
     try {
         const query = constructSearchQuery(req.query);
