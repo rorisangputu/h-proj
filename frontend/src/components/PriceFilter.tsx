@@ -14,7 +14,10 @@ const PriceFilter = ({ selectedPrice, onChange }: Props) => {
             event.target.value ? parseInt(event.target.value) : undefined
           )
         }
-      ></select>
+          >
+              <option value="">Select max price</option>
+              {[]}
+      </select>
     </div>
   );
 };
