@@ -14,6 +14,13 @@ router.get("/:id",
     }
 
     const id = req.params.id.toString();
+
+    try {
+      const hotel = await Hotel.findById(id);
+      res.json(hotel);
+    } catch (error) {
+      
+    }
 });
 
 router.get("/search", async (req: Request, res: Response) => {
