@@ -164,4 +164,6 @@ export const fetchHotelById = async (hotelId: string) => {
     if (!response.ok){
         throw new Error("Error fetching hotel");   
     }
+
+    return response.json();
 }
