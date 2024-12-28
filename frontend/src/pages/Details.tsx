@@ -47,7 +47,7 @@ const Details = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-5">
         <div className="whitespace-pre-line">{hotel.description}</div>
         <div className="h-fit">
           <GuestInfo hotelId={hotel._id} pricePerNight={hotel.pricePerNight} />
