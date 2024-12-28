@@ -31,7 +31,7 @@ const App = () => {
           }
         />
         <Route
-          path="/detail/:id"
+          path="/detail/:hotelId"
           element={
             <Layout>
               <Details />
