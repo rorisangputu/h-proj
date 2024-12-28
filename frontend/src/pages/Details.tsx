@@ -8,7 +8,7 @@ const Details = () => {
     "fetchHotelById",
     () => apiClient.fetchHotelById(hotelId as string),
     {
-      enabled: !!hotelId,
+      enabled: !!hotelId, //dont call api if hotelId doesnt exist
     }
   );
   return <div>Details</div>;
