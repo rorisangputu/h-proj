@@ -5,6 +5,13 @@ type Props = {
   pricePerNight: number;
 };
 
+type GuestInfoFormData = {
+  checkIn: Date;
+  checkOut: Date;
+  adultCount: number;
+  childCount: number;
+};
+
 const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   const {
     watch,
@@ -12,7 +19,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm<GuestInfoFormData>();
   return <div></div>;
 };
 
