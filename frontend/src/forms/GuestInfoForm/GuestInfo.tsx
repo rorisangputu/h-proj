@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { useSearchContext } from "../../contexts/searchContext";
 import { useAppContext } from "../../contexts/AppContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type Props = {
   hotelId: string;
@@ -20,7 +20,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   const search = useSearchContext();
   const { isLoggedIn } = useAppContext();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const {
     watch,
     register,
@@ -52,6 +52,17 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
       data.childCount
     );
     navigate("/sign-in", { state: { from: location } });
+  };
+    
+  const onSubmit = (data: GuestInfoFormData) => {
+    search.saveSearchValues(
+      "",
+      data.checkIn,
+      data.checkOut,
+      data.adultCount,
+      data.childCount
+    );
+    navigate(`/hotel/${hotelId}/booking`);
   };
   return (
     <div className="bg-blue-300 flex flex-col gap-4 p-4">
