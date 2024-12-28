@@ -1,6 +1,7 @@
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { useSearchContext } from "../../contexts/searchContext";
+import { useAppContext } from "../../contexts/AppContext";
 
 type Props = {
   hotelId: string;
@@ -16,7 +17,7 @@ type GuestInfoFormData = {
 
 const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   const search = useSearchContext();
-
+  const { isLoggedIn } = useAppContext();
   const {
     watch,
     register,
@@ -40,7 +41,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
   return (
-    <div className="bg-blue-400 flex flex-col gap-4 p-4">
+    <div className="bg-blue-300 flex flex-col gap-4 p-4">
       <h3 className="tex-md font-bold">&#163; {pricePerNight} / per night</h3>
       <form>
         <div className="grid grid-cols-1 gap-4 items-center">
@@ -111,6 +112,15 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               </span>
             )}
           </div>
+          {isLoggedIn ? (
+            <button className="p-3 bg-blue-700 text-white font-bold w-full hover:bg-blue-500">
+              Book Now
+            </button>
+          ) : (
+            <button className="p-3 bg-blue-700 text-white font-bold w-full hover:bg-blue-500">
+              Sign In to Book
+            </button>
+          )}
         </div>
       </form>
     </div>
