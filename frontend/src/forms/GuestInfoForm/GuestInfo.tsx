@@ -95,6 +95,11 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
                 })}
               />
             </label>
+            {errors.adultCount && (
+              <span className="text-red-500 font-semibold text-sm">
+                {errors.adultCount.message}
+              </span>
+            )}
           </div>
         </div>
       </form>
