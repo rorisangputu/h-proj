@@ -1,4 +1,3 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 
@@ -46,6 +45,21 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               minDate={minDate}
               maxDate={maxDate}
               placeholderText="Check-in Date"
+              className="min-w-full bg-white p-2 focus:outline-none"
+              wrapperClassName="min-w-full"
+            />
+          </div>
+          <div>
+            <DatePicker
+              required
+              selected={checkOut}
+              onChange={(date) => setValue("checkOut", date as Date)}
+              selectsStart
+              startDate={checkIn}
+              endDate={checkOut}
+              minDate={checkIn || minDate}
+              maxDate={maxDate}
+              placeholderText="Check-out Date"
               className="min-w-full bg-white p-2 focus:outline-none"
               wrapperClassName="min-w-full"
             />
