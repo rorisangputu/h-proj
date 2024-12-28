@@ -37,8 +37,9 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
         <div className="grid grid-cols-1 gap-4 items-center">
           <div>
             <DatePicker
+              required
               selected={checkIn}
-              onChange={(date) => setCheckIn(date as Date)}
+              onChange={(date) => setValue("checkIn", date as Date)}
               selectsStart
               startDate={checkIn}
               endDate={checkOut}
