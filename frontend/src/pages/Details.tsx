@@ -25,6 +25,18 @@ const Details = () => {
         </span>
         <h1 className="text-3xl font-bold">{hotel.name}</h1>
       </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {hotel.imageUrls.map((image: string) => (
+          <div key={image} className="h-[300px]">
+            <img
+              src={image}
+              alt={hotel.name}
+              className="rounded-md w-full h-full object-cover object-center"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
