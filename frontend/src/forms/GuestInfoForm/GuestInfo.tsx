@@ -15,15 +15,22 @@ type GuestInfoFormData = {
 };
 
 const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
-    const search = useSearchContext();
-    
+  const search = useSearchContext();
+
   const {
     watch,
     register,
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<GuestInfoFormData>();
+  } = useForm<GuestInfoFormData>({
+    defaultValues: {
+      checkIn: search.checkIn,
+      checkOut: search.checkOut,
+      adultCount: search.adultCount,
+      childCount: search.childCount,
+    },
+  });
 
   const checkIn = watch("checkIn");
   const checkOut = watch("checkOut");
