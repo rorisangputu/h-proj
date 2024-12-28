@@ -2,27 +2,9 @@ import express, { Router, Response, Request } from 'express';
 import Hotel from '../models/hotel.model';
 import { HotelSearchResponse } from '../shared/types';
 import { param, validationResult } from 'express-validator';
+import mongoose from 'mongoose';
 
 const router = Router();
-
-router.get("/:id",
-  [param("id").notEmpty().withMessage("Hotel ID is required")],
-  async (req: Request, res: Response) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const id = req.params.id.toString();
-
-    try {
-      const hotel = await Hotel.findById(id);
-      res.json(hotel);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: "Error fetching hotel" });
-    }
-});
 
 router.get("/search", async (req: Request, res: Response) => {
     try {
@@ -72,6 +54,25 @@ router.get("/search", async (req: Request, res: Response) => {
     } catch (error) {
         console.log("error", error);
         res.status(500).json({ message: "Something went wrong" });
+    }
+});
+
+router.get("/:id",
+  [param("id").notEmpty().withMessage("Hotel ID is required")],
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    
+
+    try {
+      const hotel = await Hotel.findById(req.params.id);
+      res.json(hotel);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Error fetching hotel" });
     }
 });
 
