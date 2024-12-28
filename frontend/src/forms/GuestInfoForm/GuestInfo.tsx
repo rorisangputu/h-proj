@@ -64,6 +64,38 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               wrapperClassName="min-w-full"
             />
           </div>
+          <div className="flex bg-white px-2 py-1 gap-2">
+            <label className="items-center flex">
+              Adults:
+              <input
+                className="w-full p-1 focus:outline-none font-bold"
+                type="number"
+                min={1}
+                max={20}
+                {...register("adultCount", {
+                  required: "This field is required",
+                  min: {
+                    value: 1,
+                    message: "There must be at least 1 adult",
+                  },
+                  valueAsNumber: true,
+                })}
+              />
+            </label>
+            <label className="items-center flex">
+              Children:
+              <input
+                className="w-full p-1 focus:outline-none font-bold"
+                type="number"
+                defaultValue={0}
+                min={0}
+                max={20}
+                {...register("childCount", {
+                  valueAsNumber: true,
+                })}
+              />
+            </label>
+          </div>
         </div>
       </form>
     </div>
