@@ -53,7 +53,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
     );
     navigate("/sign-in", { state: { from: location } });
   };
-    
+
   const onSubmit = (data: GuestInfoFormData) => {
     search.saveSearchValues(
       "",
@@ -67,7 +67,11 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   return (
     <div className="bg-blue-300 flex flex-col gap-4 p-4">
       <h3 className="tex-md font-bold">&#163; {pricePerNight} / per night</h3>
-      <form>
+      <form
+        onSubmit={
+          isLoggedIn ? handleSubmit(onSubmit) : handleSubmit(onSignInClick)
+        }
+      >
         <div className="grid grid-cols-1 gap-4 items-center">
           <div>
             <DatePicker
