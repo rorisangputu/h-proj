@@ -32,7 +32,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
 
   return (
     <div className="bg-blue-400 flex flex-col gap-4 p-4">
-      <h3 className="tex-md font-bold"> {pricePerNight}</h3>
+      <h3 className="tex-md font-bold">&#163; {pricePerNight} / per night</h3>
       <form>
         <div className="grid grid-cols-1 gap-4 items-center">
           <div>
