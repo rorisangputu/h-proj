@@ -45,6 +45,13 @@ const Details = () => {
           </div>
         ))}
       </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+        <div className="whitespace-pre-line">{hotel.description}</div>
+        <div>
+          <GuestInfo />
+        </div>
+      </div>
     </div>
   );
 };
