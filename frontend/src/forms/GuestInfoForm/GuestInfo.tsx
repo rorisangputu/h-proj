@@ -48,6 +48,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
       data.adultCount,
       data.childCount
     );
+    navigate("/sign-in", { state: { from: location } });
   };
   return (
     <div className="bg-blue-300 flex flex-col gap-4 p-4">
