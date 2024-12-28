@@ -1,5 +1,6 @@
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
+import { useSearchContext } from "../../contexts/searchContext";
 
 type Props = {
   hotelId: string;
@@ -14,6 +15,8 @@ type GuestInfoFormData = {
 };
 
 const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
+    const search = useSearchContext();
+    
   const {
     watch,
     register,
