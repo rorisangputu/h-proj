@@ -12,6 +12,9 @@ const Details = () => {
       enabled: !!hotelId, //dont call api if hotelId doesnt exist
     }
   );
+  if (!hotel) {
+    return <></>;
+  }
   return (
     <div className="space-y-6">
       <div>
