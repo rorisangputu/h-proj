@@ -40,6 +40,15 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
+  const onSignInClick = (data: GuestInfoFormData) => {
+    search.saveSearchValues(
+      "",
+      data.checkIn,
+      data.checkOut,
+      data.adultCount,
+      data.childCount
+    );
+  };
   return (
     <div className="bg-blue-300 flex flex-col gap-4 p-4">
       <h3 className="tex-md font-bold">&#163; {pricePerNight} / per night</h3>
@@ -60,6 +69,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               wrapperClassName="min-w-full"
             />
           </div>
+
           <div>
             <DatePicker
               required
@@ -75,6 +85,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               wrapperClassName="min-w-full"
             />
           </div>
+
           <div className="flex justify-between py-1 gap-5">
             <label className="items-center p-2 bg-white flex flex-1">
               Adults:
@@ -112,6 +123,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               </span>
             )}
           </div>
+
           {isLoggedIn ? (
             <button className="p-3 bg-blue-700 text-white font-bold w-full hover:bg-blue-500">
               Book Now
