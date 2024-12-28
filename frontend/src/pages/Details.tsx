@@ -27,7 +27,7 @@ const Details = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {hotel.imageUrls.map((image: string) => (
+        {hotel.imageUrls.map((image) => (
           <div key={image} className="h-[300px]">
             <img
               src={image}
