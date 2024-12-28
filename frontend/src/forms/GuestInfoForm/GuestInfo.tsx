@@ -64,8 +64,8 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
               wrapperClassName="min-w-full"
             />
           </div>
-          <div className="flex bg-white px-2 py-1 gap-2">
-            <label className="items-center flex">
+          <div className="flex justify-between py-1 gap-5">
+            <label className="items-center p-2 bg-white flex flex-1">
               Adults:
               <input
                 className="w-full p-1 focus:outline-none font-bold"
@@ -82,7 +82,7 @@ const GuestInfo = ({ hotelId, pricePerNight }: Props) => {
                 })}
               />
             </label>
-            <label className="items-center flex">
+            <label className="p-2 bg-white items-center flex flex-1">
               Children:
               <input
                 className="w-full p-1 focus:outline-none font-bold"
