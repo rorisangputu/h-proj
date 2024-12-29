@@ -105,6 +105,13 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
   if (!paymentIntent.client_secret) {
     return res.status(500).json({ message: "Error creating payment intent" });
   }
+
+  const response = {
+    paymentIntentId: paymentIntent.id,
+    clientSecret: paymentIntent.client_secret.toString(),
+    totalCost,
+  }
+
 });
 
 const constructSearchQuery = (queryParams: any) => {
