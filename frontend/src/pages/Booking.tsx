@@ -4,6 +4,7 @@ import BookingForm from "../forms/BookingForm/BookingForm";
 import { useSearchContext } from "../contexts/searchContext";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import BookingDetailSummary from "../components/BookingDetailSummary";
 
 const Booking = () => {
   const search = useSearchContext();
@@ -34,14 +35,16 @@ const Booking = () => {
 
   return (
     <div className="grid md:grid-cols-[1fr_2fr] gap-5">
-      <BookingDetailSummary
-        checkIn={search.checkIn}
-        checkOut={search.checkOut}
-        adultCount={search.adultCount}
-        childCount={search.childCount}
-        numNights={numNights}
-        hotel={hotel}
-      />
+      {hotel && (
+        <BookingDetailSummary
+          checkIn={search.checkIn}
+          checkOut={search.checkOut}
+          adultCount={search.adultCount}
+          childCount={search.childCount}
+          numNights={numNights}
+          hotel={hotel}
+        />
+      )}
       {currentUser && <BookingForm currentUser={currentUser} />}
     </div>
   );
