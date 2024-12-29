@@ -93,6 +93,15 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
   }
 
   const totalCost = hotel.pricePerNight * numOfNights;
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: totalCost,
+    currency: "gbp",
+    metadata: {
+      hotelId,
+      userId: req.userId
+    }
+  })
 })
 
 const constructSearchQuery = (queryParams: any) => {
