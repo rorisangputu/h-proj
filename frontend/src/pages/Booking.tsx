@@ -10,9 +10,9 @@ const Booking = () => {
 
   console.log(currentUser?.email);
   return (
-    <div className="grid md:grid-cols-[1fr_2fr]">
+    <div className="grid md:grid-cols-[1fr_2fr] gap-5">
       <div className="bg-green-200 uppercase">Booking Details Summary</div>
-      <BookingForm currentUser={currentUser} />
+      {currentUser && <BookingForm currentUser={currentUser} />}
     </div>
   );
 };
