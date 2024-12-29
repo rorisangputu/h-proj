@@ -15,6 +15,11 @@ export type HotelType = {
     lastUpdated: Date;
 };
 
+export type BookingType = {
+    _id: string;
+    
+};
+
 export type HotelSearchResponse = {
     data: HotelType[];
     pagination: {
