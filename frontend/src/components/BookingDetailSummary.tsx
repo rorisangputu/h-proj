@@ -18,7 +18,7 @@ const BookingDetailSummary = ({
   numNights,
 }: Props) => {
   return (
-    <div className="border p-5 flex flex-col gap-3 h-fit">
+    <div className="border rounded-lg border-slate-300 p-5 flex flex-col gap-3 h-fit">
       <h2 className="text-2xl font-bold">Your Booking Details</h2>
       <div className="flex flex-col border-b py-3">
         <p className="font-light">Location:</p>
