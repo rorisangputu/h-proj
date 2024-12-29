@@ -102,7 +102,9 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
       userId: req.userId
     }
   });
-  
+  if (!paymentIntent.client_secret) {
+    return res.status(500).json({ message: "Error creating payment intent" });
+  }
 });
 
 const constructSearchQuery = (queryParams: any) => {
