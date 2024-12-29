@@ -6,9 +6,14 @@ const Booking = () => {
     "fetchCurrentUser",
     apiClient.fetchCurrentUser
   );
-    
+
   console.log(currentUser?.email);
-  return <div>Booking</div>;
+  return (
+    <div className="grid md:grid-cols-[1fr_2fr]">
+      <div className="bg-green-200 uppercase">Booking Details Summary</div>
+      <BookingForm currentUser={currentUser} />
+    </div>
+  );
 };
 
 export default Booking;
