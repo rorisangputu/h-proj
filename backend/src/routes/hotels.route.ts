@@ -101,8 +101,9 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
       hotelId,
       userId: req.userId
     }
-  })
-})
+  });
+  
+});
 
 const constructSearchQuery = (queryParams: any) => {
   let constructedQuery: any = {};
