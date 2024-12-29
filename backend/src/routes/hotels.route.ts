@@ -3,6 +3,9 @@ import Hotel from '../models/hotel.model';
 import { HotelSearchResponse } from '../shared/types';
 import { param, validationResult } from 'express-validator';
 import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
+
 const router = Router();
 
 router.get("/search", async (req: Request, res: Response) => {
