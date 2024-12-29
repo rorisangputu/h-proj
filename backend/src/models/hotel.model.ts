@@ -27,6 +27,7 @@ const hotelSchema = new Schema<HotelType>({
     facilities: [{ type: String, required: true }],
     imageUrls: [{ type: String, required: true }],
     lastUpdated: { type: Date, required: true },
+     bookings: [bookingSchema],
 });
 
 const Hotel = model<HotelType>("Hotel", hotelSchema);
