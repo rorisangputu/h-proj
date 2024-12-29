@@ -80,7 +80,19 @@ router.get("/:id",
 });
 
 router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request, res: Response) => {
-  
+  //1. Total cost of booking
+  //2. Hotel Id
+  //3. UserId
+
+  const { numOfNights } = req.body;
+  const hotelId = req.params.hotelId;
+
+  const hotel = await Hotel.findById(hotelId);
+  if (!hotel) {
+    return res.json(400).json({ message: "Hotel not found" });
+  }
+
+  const totalCost = hotel.pricePerNight * numOfNights;
 })
 
 const constructSearchQuery = (queryParams: any) => {
