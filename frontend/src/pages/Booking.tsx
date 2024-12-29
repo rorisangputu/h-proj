@@ -7,6 +7,10 @@ import { useParams } from "react-router-dom";
 const Booking = () => {
   const search = useSearchContext();
   const { hotelId } = useParams();
+
+  const { data: hotel } = useQuery("fetchHotelById", () =>
+    apiClient.fetchHotelById(hotelId as string)
+  );
   const { data: currentUser } = useQuery(
     "fetchCurrentUser",
     apiClient.fetchCurrentUser
