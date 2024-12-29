@@ -27,11 +27,11 @@ const BookingDetailSummary = ({
       <div className="border-b py-3 grid grid-cols-2">
         <div>
           <p className="font-light">Check In:</p>
-          <span className="font-semibold">{checkIn.toISOString()}</span>
+          <span className="font-semibold">{checkIn.toDateString()}</span>
         </div>
         <div>
           <p className="font-light">Check Out:</p>
-          <span className="font-semibold">{checkOut.toISOString()}</span>
+          <span className="font-semibold">{checkOut.toDateString()}</span>
         </div>
       </div>
       <div className="flex flex-col border-b py-3">
