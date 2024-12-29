@@ -34,7 +34,14 @@ const Booking = () => {
 
   return (
     <div className="grid md:grid-cols-[1fr_2fr] gap-5">
-      <div className="bg-green-200 uppercase">Booking Details Summary</div>
+      <BookingDetailSummary
+        checkIn={search.checkIn}
+        checkOut={search.checkOut}
+        adultCount={search.adultCount}
+        childCount={search.childCount}
+        numNights={numNights}
+        hotel={hotel}
+      />
       {currentUser && <BookingForm currentUser={currentUser} />}
     </div>
   );
