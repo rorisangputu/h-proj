@@ -15,8 +15,10 @@ const Booking = () => {
       const nights =
         Math.abs(search.checkOut.getTime() - search.checkIn.getTime()) /
         (1000 * 60 * 60 * 24);
+
+      setNumNights(Math.ceil(nights));
     }
-  });
+  }, [search.checkIn, search.checkOut]);
 
   const { data: hotel } = useQuery(
     "fetchHotelById",
