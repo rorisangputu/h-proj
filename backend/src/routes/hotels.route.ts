@@ -115,7 +115,12 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
 });
 
 router.post("/hotelId/bookings", verifyToken, async (req: Request, res: Response) => {
-  
+  try {
+    
+  } catch (error) {
+    console.log("Error:", error)
+    return res.status(500).json({message: "Something went wrong"})
+  }
 })
 
 const constructSearchQuery = (queryParams: any) => {
