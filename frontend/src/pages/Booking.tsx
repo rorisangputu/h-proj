@@ -8,8 +8,12 @@ const Booking = () => {
   const search = useSearchContext();
   const { hotelId } = useParams();
 
-  const { data: hotel } = useQuery("fetchHotelById", () =>
-    apiClient.fetchHotelById(hotelId as string)
+  const { data: hotel } = useQuery(
+    "fetchHotelById",
+    () => apiClient.fetchHotelById(hotelId as string),
+    {
+      enabled: !!hotelId,
+    }
   );
   const { data: currentUser } = useQuery(
     "fetchCurrentUser",
