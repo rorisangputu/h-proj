@@ -3,10 +3,20 @@ import * as apiClient from "../apiClient";
 import BookingForm from "../forms/BookingForm/BookingForm";
 import { useSearchContext } from "../contexts/searchContext";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Booking = () => {
   const search = useSearchContext();
   const { hotelId } = useParams();
+
+  const [numNights, setNumNights] = useState<number>(0);
+  useEffect(() => {
+    if (search.checkIn && search.checkOut) {
+      const nights =
+        Math.abs(search.checkOut.getTime() - search.checkIn.getTime()) /
+        (1000 * 60 * 60 * 24);
+    }
+  });
 
   const { data: hotel } = useQuery(
     "fetchHotelById",
