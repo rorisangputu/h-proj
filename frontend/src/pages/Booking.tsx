@@ -1,8 +1,10 @@
 import { useQuery } from "react-query";
 import * as apiClient from "../apiClient";
 import BookingForm from "../forms/BookingForm/BookingForm";
+import { useSearchContext } from "../contexts/searchContext";
 
 const Booking = () => {
+    const search = useSearchContext();
   const { data: currentUser } = useQuery(
     "fetchCurrentUser",
     apiClient.fetchCurrentUser
