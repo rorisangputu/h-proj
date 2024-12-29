@@ -2,7 +2,7 @@ import express, { Router, Response, Request } from 'express';
 import Hotel from '../models/hotel.model';
 import { HotelSearchResponse } from '../shared/types';
 import { param, validationResult } from 'express-validator';
-
+import Stripe from 'stripe';
 const router = Router();
 
 router.get("/search", async (req: Request, res: Response) => {
