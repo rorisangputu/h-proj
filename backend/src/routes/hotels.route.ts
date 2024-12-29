@@ -114,6 +114,10 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
   res.send(response);
 });
 
+router.post("/hotelId/bookings", verifyToken, async (req: Request, res: Response) => {
+  
+})
+
 const constructSearchQuery = (queryParams: any) => {
   let constructedQuery: any = {};
 
