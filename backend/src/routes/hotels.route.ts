@@ -3,6 +3,7 @@ import Hotel from '../models/hotel.model';
 import { HotelSearchResponse } from '../shared/types';
 import { param, validationResult } from 'express-validator';
 import Stripe from 'stripe';
+import { verifyToken } from '../middleware/auth.middleware';
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
@@ -77,6 +78,10 @@ router.get("/:id",
       res.status(500).json({ message: "Error fetching hotel" });
     }
 });
+
+router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request, res: Response) => {
+  
+})
 
 const constructSearchQuery = (queryParams: any) => {
   let constructedQuery: any = {};
