@@ -18,31 +18,31 @@ const BookingDetailSummary = ({
   numNights,
 }: Props) => {
   return (
-    <div className="border p-3 flex flex-col gap-3">
+    <div className="border p-5 flex flex-col gap-3 h-fit">
       <h2 className="text-2xl font-bold">Your Booking Details</h2>
       <div className="flex flex-col border-b py-3">
         <p className="font-light">Location:</p>
-        <h3 className="font-semibold">{hotel.name}</h3>
+        <span className="font-semibold">{`${hotel.name}, ${hotel.city}, ${hotel.country}`}</span>
       </div>
       <div className="border-b py-3 grid grid-cols-2">
         <div>
           <p className="font-light">Check In:</p>
-          <h3 className="font-semibold">{checkIn.toISOString()}</h3>
+          <span className="font-semibold">{checkIn.toISOString()}</span>
         </div>
         <div>
           <p className="font-light">Check Out:</p>
-          <h3 className="font-semibold">{checkOut.toISOString()}</h3>
+          <span className="font-semibold">{checkOut.toISOString()}</span>
         </div>
       </div>
       <div className="flex flex-col border-b py-3">
         <p className="font-light">Total length of stay:</p>
-        <h3 className="font-semibold">{numNights} night</h3>
+        <span className="font-semibold">{numNights} night</span>
       </div>
       <div className="flex flex-col  py-3">
         <p className="font-light">Guest:</p>
-        <h3 className="font-semibold">
+        <span className="font-semibold">
           {adultCount} adults & {childCount} children
-        </h3>
+        </span>
       </div>
     </div>
   );
