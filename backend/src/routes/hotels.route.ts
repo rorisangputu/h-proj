@@ -111,7 +111,7 @@ router.post("/hotelId/bookings/payment-intent", verifyToken, async (req: Request
     clientSecret: paymentIntent.client_secret.toString(),
     totalCost,
   }
-
+  res.send(response);
 });
 
 const constructSearchQuery = (queryParams: any) => {
