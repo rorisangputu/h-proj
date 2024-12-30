@@ -76,7 +76,7 @@ router.get(
 );
 
 router.post(
-  "/hotelId/bookings/payment-intent",
+  "/:hotelId/bookings/payment-intent",
   verifyToken,
   async (req: Request, res: Response) => {
     //1. Total cost of booking
@@ -115,7 +115,7 @@ router.post(
 );
 
 router.post(
-  "/hotelId/bookings",
+  "/:hotelId/bookings",
   verifyToken,
   async (req: Request, res: Response) => {
     try {
