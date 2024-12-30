@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import Toast from "../components/Toast";
 import { useQuery } from "react-query";
 import * as apiClient from "../apiClient";
+import { loadStripe, Stripe } from "@stripe/stripe-js";
+
+const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || "";
 
 type ToastMessage = {
   message: string;
@@ -14,6 +17,8 @@ type AppContext = {
 };
 
 const AppContext = React.createContext<AppContext | undefined>(undefined);
+
+
 
 export const AppContextProvider = ({
   children,
