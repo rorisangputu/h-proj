@@ -18,7 +18,7 @@ type AppContext = {
 
 const AppContext = React.createContext<AppContext | undefined>(undefined);
 
-
+const stripePromise = loadStripe(STRIPE_PUB_KEY);
 
 export const AppContextProvider = ({
   children,
