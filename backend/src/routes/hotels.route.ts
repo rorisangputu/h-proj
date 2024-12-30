@@ -1,6 +1,6 @@
 import express, { Router, Response, Request } from "express";
 import Hotel from "../models/hotel.model";
-import { HotelSearchResponse } from "../shared/types";
+import { BookingType, HotelSearchResponse } from "../shared/types";
 import { param, validationResult } from "express-validator";
 import Stripe from "stripe";
 import { verifyToken } from "../middleware/auth.middleware";
@@ -134,6 +134,20 @@ router.post(
       ) {
         return res.status(400).json({message: "Payment intent mismatch"})
       }
+
+      if (paymentIntent.status !== "succeeded") {
+        return res.status(400).json({message: `Payment intent not succeeded. Status: ${paymentIntent.status}.`})
+      }
+
+      const newBooking: BookingType = {
+        ...req.body,
+        userId: req.userId,
+      };
+
+      const hotel = await Hotel.findOneAndUpdate({ _id: req.params.hotelId }, {
+        $push: {bookings: newBooking}
+      } )
+
     } catch (error) {
       console.log("Error:", error);
       return res.status(500).json({ message: "Something went wrong" });
