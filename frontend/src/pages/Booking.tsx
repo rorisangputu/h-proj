@@ -56,7 +56,9 @@ const Booking = () => {
         hotel={hotel}
       />
 
-      {currentUser && <BookingForm currentUser={currentUser} />}
+      {currentUser && paymentIntentData && (
+        <BookingForm currentUser={currentUser} />
+      )}
     </div>
   );
 };
