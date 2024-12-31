@@ -66,7 +66,10 @@ const Booking = () => {
             clientSecret: paymentIntentData.clientSecret,
           }}
         >
-          <BookingForm currentUser={currentUser} />
+          <BookingForm
+            currentUser={currentUser}
+            paymentIntent={paymentIntentData}
+          />
         </Elements>
       )}
     </div>
