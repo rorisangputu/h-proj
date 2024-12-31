@@ -3,7 +3,8 @@ import {
   PaymentIntentResponse,
   UserType,
 } from "../../../../backend/src/shared/types";
-import { CardElement, useStripe } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { StripeCardElement } from "@stripe/stripe-js";
 
 type Props = {
   currentUser: UserType;
@@ -18,6 +19,7 @@ type BookingFormData = {
 
 const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const stripe = useStripe();
+  const elements = useElements();
   const { handleSubmit, register } = useForm<BookingFormData>({
     defaultValues: {
       firstName: currentUser.firstName,
@@ -27,10 +29,14 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   });
 
   const onSubmit = async (formData: BookingFormData) => {
-    if (!stripe) {
+    if (!stripe || !elements) {
       return;
     }
-    const result = await stripe.confirmCardPayment;
+    const result = await stripe.confirmCardPayment(paymentIntent.clientSecret, {
+      payment_method: {
+        card: elements?.getElement(CardElement) as StripeCardElement,
+      },
+    });
   };
 
   return (
