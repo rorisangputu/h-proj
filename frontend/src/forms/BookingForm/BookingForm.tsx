@@ -3,6 +3,7 @@ import {
   PaymentIntentResponse,
   UserType,
 } from "../../../../backend/src/shared/types";
+import { CardElement } from "@stripe/react-stripe-js";
 
 type Props = {
   currentUser: UserType;
@@ -66,6 +67,13 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
           </div>
           <div className="text-xs">Includes taxes and charges</div>
         </div>
+      </div>
+      <div className="space-y-2">
+        <h3 className="text-xl font-semibold">Payment Details</h3>
+        <CardElement
+          id="payment-element"
+          className="border rounded-md p-2 text-sm"
+        />
       </div>
     </form>
   );
