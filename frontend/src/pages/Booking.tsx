@@ -5,8 +5,11 @@ import { useSearchContext } from "../contexts/searchContext";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BookingDetailSummary from "../components/BookingDetailSummary";
+import { Elements } from "@stripe/react-stripe-js";
+import { useAppContext } from "../contexts/AppContext";
 
 const Booking = () => {
+  const { stripePromise } = useAppContext();
   const search = useSearchContext();
   const { hotelId } = useParams();
 
@@ -57,7 +60,14 @@ const Booking = () => {
       />
 
       {currentUser && paymentIntentData && (
-        <BookingForm currentUser={currentUser} />
+        <Elements
+          stripe={stripePromise}
+          options={{
+            clientSecret: paymentIntentData.clientSecret,
+          }}
+        >
+          <BookingForm currentUser={currentUser} />
+        </Elements>
       )}
     </div>
   );
