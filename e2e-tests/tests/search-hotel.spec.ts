@@ -39,3 +39,7 @@ test("should show hotel detail", async({ page }) => {
     await expect(page).toHaveURL(/detail/);
     await expect(page.getByRole("button", { name: "Book Now" })).toBeVisible();
 });
+
+test("should book hotel", async ({ page }) => {
+    
+});
