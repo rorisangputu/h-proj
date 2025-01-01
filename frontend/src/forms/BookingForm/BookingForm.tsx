@@ -11,7 +11,7 @@ type Props = {
   paymentIntent: PaymentIntentResponse;
 };
 
-type BookingFormData = {
+export type BookingFormData = {
   firstName: string;
   lastName: string;
   email: string;
