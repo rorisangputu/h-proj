@@ -37,6 +37,9 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
         card: elements?.getElement(CardElement) as StripeCardElement,
       },
     });
+    if (result.paymentIntent?.status === "succeeded") {
+      //bookroom
+    }
   };
 
   return (
