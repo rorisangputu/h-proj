@@ -5,6 +5,8 @@ import {
 } from "../../../../backend/src/shared/types";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement } from "@stripe/stripe-js";
+import { useSearchContext } from "../../contexts/searchContext";
+import { useParams } from "react-router-dom";
 
 type Props = {
   currentUser: UserType;
@@ -15,16 +17,33 @@ export type BookingFormData = {
   firstName: string;
   lastName: string;
   email: string;
+  adultCount: number;
+  childCount: number;
+  checkIn: string;
+  checkOut: string;
+  hotelId: string;
+  paymentIntentId: string;
+  totalCost: number;
 };
 
 const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const stripe = useStripe();
   const elements = useElements();
+  const search = useSearchContext();
+  const { hotelId } = useParams();
+
   const { handleSubmit, register } = useForm<BookingFormData>({
     defaultValues: {
       firstName: currentUser.firstName,
       lastName: currentUser.lastName,
       email: currentUser.email,
+      adultCount: search.adultCount,
+      childCount: search.childCount,
+      checkIn: search.checkIn.toISOString(),
+      checkOut: search.checkOut.toISOString(),
+      hotelId: hotelId,
+      totalCost: paymentIntent.totalCost,
+      paymentIntentId: paymentIntent.paymentIntentId,
     },
   });
 

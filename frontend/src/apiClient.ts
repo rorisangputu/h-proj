@@ -205,6 +205,10 @@ export const createBooking = async (formData: BookingFormData) => {
         },
         credentials: "include",
         body: JSON.stringify(formData)
-    })
+    });
+
+    if (!response.ok) {
+        throw new Error("Error booking room");
+    }
 }
 
