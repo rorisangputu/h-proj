@@ -94,7 +94,7 @@ router.post(
     const totalCost = hotel.pricePerNight * numOfNights;
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: totalCost,
+      amount: totalCost * 100,
       currency: "gbp",
       metadata: {
         hotelId,
@@ -148,13 +148,13 @@ router.post(
       const hotel = await Hotel.findOneAndUpdate({ _id: req.params.hotelId }, {
         $push: { bookings: newBooking }
       });
-
+      //console.log(hotel);
       if (!hotel) {
         return res.status(400).json({ message: "Hotel not found" });
       }
 
       await hotel.save();
-      res.status(200).send();
+      res.status(200).send(hotel);
 
     } catch (error) {
       console.log("Error:", error);
