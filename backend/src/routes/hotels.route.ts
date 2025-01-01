@@ -118,6 +118,7 @@ router.post(
   "/:hotelId/bookings",
   verifyToken,
   async (req: Request, res: Response) => {
+    //console.log("Request Body: ",req.body);
     try {
       const paymentIntentId = req.body.paymentIntentId;
       const paymentIntent = await stripe.paymentIntents.retrieve(
