@@ -36,7 +36,7 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const { hotelId } = useParams();
   const { showToast } = useAppContext();
 
-  const { mutate: bookRoom } = useMutation(apiClient.createBooking, {
+  const { mutate: bookRoom, isLoading } = useMutation(apiClient.createBooking, {
     onSuccess: () => {
       showToast({ message: "Booking saved!", type: "SUCCESS" });
     },
@@ -131,10 +131,11 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
       </div>
       <div className="flex justify-end">
         <button
+          disabled={isLoading}
           type="submit"
-          className="p-3 bg-blue-700 text-white font-bold hover:bg-blue-600 text-md"
+          className="p-3 bg-blue-700 text-white font-bold hover:bg-blue-600 text-md disabled:bg-slate-400"
         >
-          Confirm Booking
+          {isLoading ? "Confirming..." : "Confirm Booking"}
         </button>
       </div>
     </form>
