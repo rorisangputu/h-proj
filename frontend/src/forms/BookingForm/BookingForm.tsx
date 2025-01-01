@@ -7,6 +7,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement } from "@stripe/stripe-js";
 import { useSearchContext } from "../../contexts/searchContext";
 import { useParams } from "react-router-dom";
+import { useMutation } from "react-query";
+import * as apiClient from "../../apiClient";
+import { useAppContext } from "../../contexts/AppContext";
 
 type Props = {
   currentUser: UserType;
@@ -31,6 +34,16 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const elements = useElements();
   const search = useSearchContext();
   const { hotelId } = useParams();
+  const { showToast } = useAppContext();
+
+  const { mutate: bookRoom } = useMutation(apiClient.createBooking, {
+    onSuccess: () => {
+      showToast({ message: "Booking saved!", type: "SUCCESS" });
+    },
+    onError: () => {
+      showToast({ message: "Error saving booking", type: "ERROR" });
+    },
+  });
 
   const { handleSubmit, register } = useForm<BookingFormData>({
     defaultValues: {
@@ -58,11 +71,15 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
     });
     if (result.paymentIntent?.status === "succeeded") {
       //bookroom
+      bookRoom({ ...formData, paymentIntentId: result.paymentIntent.id });
     }
   };
 
   return (
-    <form className="grid grid-cols-1 gap-5 rounded-lg border border-slate-300 p-5">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid grid-cols-1 gap-5 rounded-lg border border-slate-300 p-5"
+    >
       <span className="text-3xl font-bold">Confirm your details</span>
       <div className="grid grid-cols-2 gap-6">
         <label className="text-gray-700 text-sm font-bold flex-1">
@@ -111,6 +128,14 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
           id="payment-element"
           className="border rounded-md p-2 text-sm"
         />
+      </div>
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="p-3 bg-blue-700 text-white font-bold hover:bg-blue-600 text-md"
+        >
+          Confirm Booking
+        </button>
       </div>
     </form>
   );
