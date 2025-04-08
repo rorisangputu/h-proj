@@ -6,7 +6,6 @@ import { UserType } from "../shared/types";
 
 
 const userSchema = new Schema({
-
     email: {
         type: String,
         required: true,
@@ -23,8 +22,7 @@ const userSchema = new Schema({
     lastName: {
         type: String,
         required: true
-    },
-    
+    }, 
 });
 
 userSchema.pre("save", async function(next) {
